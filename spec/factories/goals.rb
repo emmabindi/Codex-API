@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :goal do
-    title { "MyString" }
-    body { "MyText" }
-    due_date { "2020-07-15" }
+    title { "Implement Styled Components" }
+    body { "Utilise styled components with a React app for the first time" }
+    due_date { "2020-09-30" }
   end
 end
