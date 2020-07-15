@@ -28,8 +28,16 @@ RSpec.describe Journal, type: :model do
       expect(subject).to_not be_valid
     end
 
-    it { should validate_length_of(:body).is_at_least(5) }
-    it { should validate_length_of(:body).is_at_most(15000) }
+    it do
+      should validate_length_of(:body).
+      is_at_least(5).
+      with_short_message('Please enter a longer journal entry')
+    end
 
+    it do
+      should validate_length_of(:body).
+      is_at_most(15000).
+      with_long_message('Please enter a shorter journal of less than 15000 characters')
+    end
   end
 end
