@@ -1,6 +1,7 @@
 class Goal < ApplicationRecord
   validates :title, presence: true
   validates :due_date, presence: true
+  validates :completed, presence: true
   
   validates_length_of :title, 
   in: 3..40,

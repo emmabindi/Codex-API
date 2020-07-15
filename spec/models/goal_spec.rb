@@ -10,6 +10,7 @@ RSpec.describe Goal, type: :model do
 
     it {expect(subject).to validate_presence_of(:title)}
     it {expect(subject).to validate_presence_of(:due_date)}
+    it {expect(subject.completed).to be_in([true, false])}
 
     it do
       should validate_length_of(:title).
