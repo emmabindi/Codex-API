@@ -30,4 +30,8 @@ RSpec.describe Goal, type: :model do
       with_long_message('Please enter a shorter goal description of less than 350 characters')
     end
   end
+
+  context 'associations' do
+    it { expect(subject).to belong_to(:user)}
+  end
 end

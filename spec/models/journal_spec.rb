@@ -44,4 +44,8 @@ RSpec.describe Journal, type: :model do
       with_long_message('Please enter a shorter journal of less than 15000 characters')
     end
   end
+  
+  context 'associations' do
+    it { expect(subject).to belong_to(:user)}
+  end
 end

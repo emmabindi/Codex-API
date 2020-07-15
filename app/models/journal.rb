@@ -7,4 +7,6 @@ class Journal < ApplicationRecord
     in: 5..15000,
     too_short: 'Please enter a longer journal entry',
     too_long: 'Please enter a shorter journal of less than 15000 characters'
+
+  belongs_to :user
 end

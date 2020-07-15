@@ -11,4 +11,6 @@ class Goal < ApplicationRecord
   validates_length_of :body,
   maximum: 350,
   too_long: 'Please enter a shorter goal description of less than 350 characters'
+
+  belongs_to :user
 end

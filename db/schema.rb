@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_223930) do
+ActiveRecord::Schema.define(version: 2020_07_15_231745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2020_07_15_223930) do
     t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -30,6 +32,8 @@ ActiveRecord::Schema.define(version: 2020_07_15_223930) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "completed"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
   create_table "journals", force: :cascade do |t|
@@ -37,6 +41,8 @@ ActiveRecord::Schema.define(version: 2020_07_15_223930) do
     t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_journals_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,4 +53,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_223930) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "bookmarks", "users"
+  add_foreign_key "goals", "users"
+  add_foreign_key "journals", "users"
 end

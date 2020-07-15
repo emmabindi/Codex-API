@@ -29,4 +29,8 @@ RSpec.describe Bookmark, type: :model do
       with_long_message('Please enter a shorter description of less than 250 characters')
     end
   end
+
+  context 'associations' do
+    it { expect(subject).to belong_to(:user)}
+  end
 end
