@@ -1,12 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Bookmark, type: :model do
-  subject{ build(:bookmark) }
+  # subject{ build(:bookmark) }
+  subject {described_class.new(
+    title: "Rails Techniques: Using Polymorphic Associations",
+    description: "Helpful article explaining the how and why for use of polymorphic associations in Rails, has model examples",
+    url: "https://semaphoreci.com/blog/2017/08/16/polymorphic-associations-in-rails.html",
+    user_id: 1
+  )}
 
   context 'validations' do  
-    it 'has a valid factory' do
-      expect(build(:bookmark)).to be_valid  
-    end
+    # it 'has a valid factory' do
+    #   expect(build(:bookmark)).to be_valid  
+    # end
 
     it {expect(subject).to validate_presence_of(:title)}
     it {expect(subject).to validate_presence_of(:url)}
