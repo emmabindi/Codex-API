@@ -11,5 +11,5 @@ class Bookmark < ApplicationRecord
 
   belongs_to :user
   has_many :category_joins, as: :categorizable
-  has_many :categories, through: :category_join
+  has_many :categories, through: :category_joins
 end
