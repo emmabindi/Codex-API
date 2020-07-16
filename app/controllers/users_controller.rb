@@ -6,9 +6,9 @@ class UsersController < ApplicationController
 
   def destroy
     # // check auth first??
-    @user = User.find(params[:id])
-    @user.destroy
-    # or - current_user.destroy??
+    # @user = User.find(params[:id])
+    # @user.destroy
+   current_user.destroy
     # delete all dependent info?? models dependent :destroy ?? 
     render json: "User Deleted", status: 200
   end 
