@@ -4,8 +4,8 @@ RSpec.describe "Bookmarks", type: :request do
   # describe 'GET #index' do
   #   before(:example) do
   #     @first_bookmark = create(:bookmark)
-  #     @last_trail = create(:bookmark)
-  #     get '/bookmarks', headers: {authenticated_header}
+  #     @last_bookmark = create(:bookmark)
+  #     get '/bookmarks'
   #     @json_response = JSON.parse(response.body)
   #   end
 
@@ -25,6 +25,23 @@ RSpec.describe "Bookmarks", type: :request do
   #       'url' => @first_bookmark.url,
   #       'user_id' => @first_bookmark.user_id
   #     }) 
+  #   end
+  # end
+
+  # describe 'POST #create' do
+  #   context 'when the bookmark is valid' do
+  #     before(:example) do
+  #       @bookmark_params = attributes_for(:bookmark)
+  #       post '/bookmarks', params: { bookmark: @bookmark_params }, headers: authenticated_header
+  #     end
+
+  #     it 'returns http created' do
+  #       expect(response).to have_http_status(:created)
+  #     end
+
+  #     # it 'saves the bookmark to the database' do
+  #     #   expect(bookmark.last.name).to eq(@bookmark_params[:name])
+  #     # end
   #   end
   # end
 end
