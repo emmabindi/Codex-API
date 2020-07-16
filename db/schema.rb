@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_15_231745) do
+ActiveRecord::Schema.define(version: 2020_07_15_235159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,22 @@ ActiveRecord::Schema.define(version: 2020_07_15_231745) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "categorizables", force: :cascade do |t|
+    t.string "categorizable_type", null: false
+    t.bigint "categorizable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "category_id", null: false
+    t.index ["categorizable_type", "categorizable_id"], name: "index_categorizables_on_categorizable_type_and_categorizable_id"
+    t.index ["category_id"], name: "index_categorizables_on_category_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -54,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_07_15_231745) do
   end
 
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "categorizables", "categories"
   add_foreign_key "goals", "users"
   add_foreign_key "journals", "users"
 end
