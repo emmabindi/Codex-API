@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get "/status", to: "status#index"
   get "/status/user", to: "status#user"
   post "/sign-up", to: "users#create"
+
+  resources :journals
 end
