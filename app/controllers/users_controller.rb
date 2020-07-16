@@ -4,6 +4,15 @@ class UsersController < ApplicationController
     render json: "user created", status: 200
   end
 
+  def destroy
+    # // check auth first??
+    @user = User.find(params[:id])
+    @user.destroy
+    # or - current_user.destroy??
+    # delete all dependent info?? models dependent :destroy ?? 
+    render json: "User Deleted", status: 200
+  end 
+
   private 
 
   def user_params 
