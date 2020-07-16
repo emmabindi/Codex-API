@@ -3,8 +3,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :username, presence: true
 
-  has_many :bookmarks
-  has_many :goals
-  has_many :journals
-  has_many :categories
+  has_many :bookmarks, dependent: :destroy
+  has_many :goals, dependent: :destroy
+  has_many :journals, dependent: :destroy
+  has_many :categories, dependent: :destroy
 end
