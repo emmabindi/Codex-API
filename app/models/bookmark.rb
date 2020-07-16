@@ -9,7 +9,7 @@ class Bookmark < ApplicationRecord
 
   validates_length_of :description, maximum: 250, too_long: 'Please enter a shorter description of less than 250 characters'
 
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
   has_many :category_joins, as: :categorizable
   has_many :categories, through: :category_joins
 end
