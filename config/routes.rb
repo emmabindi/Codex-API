@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :journals
   resources :bookmarks
   resources :goals
+
+  root to: 'landing#index'
 end
