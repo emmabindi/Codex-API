@@ -13,4 +13,11 @@ RSpec.describe User, type: :model do
     it { expect(subject).to validate_uniqueness_of(:email) }
     it { expect(subject).to have_secure_password }
   end
+
+  context 'associations' do
+    it { expect(subject).to have_many(:bookmarks)}
+    it { expect(subject).to have_many(:goals)}
+    it { expect(subject).to have_many(:journals)}
+    it { expect(subject).to have_many(:categories)}
+  end
 end
