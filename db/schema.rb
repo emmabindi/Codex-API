@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_16_005712) do
+ActiveRecord::Schema.define(version: 2020_07_16_011057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 2020_07_16_005712) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "category_joins", force: :cascade do |t|
+    t.string "categorizable_type", null: false
+    t.bigint "categorizable_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["categorizable_type", "categorizable_id"], name: "index_category_joins_on_categorizable_type_and_categorizable_id"
+    t.index ["category_id"], name: "index_category_joins_on_category_id"
   end
 
   create_table "goals", force: :cascade do |t|
@@ -63,6 +73,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_005712) do
 
   add_foreign_key "bookmarks", "users"
   add_foreign_key "categories", "users"
+  add_foreign_key "category_joins", "categories"
   add_foreign_key "goals", "users"
   add_foreign_key "journals", "users"
 end
