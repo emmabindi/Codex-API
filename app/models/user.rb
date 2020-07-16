@@ -6,5 +6,4 @@ class User < ApplicationRecord
   has_many :bookmarks
   has_many :goals
   has_many :journals
-  has_many :categories
 end
