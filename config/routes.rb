@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post "/sign-up", to: "users#create"
 
   resources :journals
+  resources :bookmarks
 end
