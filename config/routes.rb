@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get "/status", to: "status#index"
   get "/status/user", to: "status#user"
   post "/sign-up", to: "users#create"
+  get "/current-user", to: "users#index"
 
   delete "/user/:id", to: "users#destroy"
   

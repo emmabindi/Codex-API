@@ -1,4 +1,18 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user
+
+  def index
+    pp current_user
+    if params[:type] == "json"
+      render json: {
+        user: {
+          username: current_user.username,
+          email: current_user.email
+        }
+      }
+    end
+  end
+
   def create
     User.create(user_params)
     render json: "user created", status: 200
