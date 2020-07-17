@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if params[:type] == "json"
       render json: {
         user: {
-          id: current_user.id
+          id: current_user.id,
           username: current_user.username,
           email: current_user.email
         }
