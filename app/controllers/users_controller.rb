@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def create
     User.create(user_params)
-    render json: "user created", status: 200
+    render json: "user created", status: 201
   end
 
   def destroy

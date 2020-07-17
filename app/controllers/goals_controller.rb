@@ -13,7 +13,7 @@ class GoalsController < ApplicationController
 
   def create
     goal = current_user.goals.create(goal_params)
-    render json: goal, status: 200
+    render json: goal, status: 201
   end
 
   def update
@@ -32,6 +32,6 @@ class GoalsController < ApplicationController
   end
 
   def goal_params
-    params.require(:goal).permit(:title, :description, :url, :user_id)
+    params.require(:goal).permit(:title, :description, :url, :user_id, :completed)
   end
 end

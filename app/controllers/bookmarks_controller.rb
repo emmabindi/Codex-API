@@ -13,7 +13,7 @@ class BookmarksController < ApplicationController
 
   def create
     bookmark = current_user.bookmarks.create(bookmark_params)
-    render json: bookmark, status: 200
+    render json: bookmark, status: 201
   end
 
   def update

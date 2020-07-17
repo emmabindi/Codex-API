@@ -13,7 +13,7 @@ class JournalsController < ApplicationController
 
   def create
     journal = current_user.journals.create(journal_params)
-    render json: journal, status: 200
+    render json: journal, status: 201
   end
 
   def update
