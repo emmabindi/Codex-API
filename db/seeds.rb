@@ -27,6 +27,10 @@ Journal.create(title: "Day 1 of 100 Days of Code", body: "If you're on Twitter a
 
 puts "Journal added"
 
+Journal.first.categories.create(name:"Challenge", user_id:1)
+
+puts "Added category to a journal"
+
 Goal.create(
   title: "Implement Styled Components",
   body: "Utilise styled components with a React app for the first time",
