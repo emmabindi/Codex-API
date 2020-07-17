@@ -2,10 +2,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user
 
   def index
-    pp current_user
     if params[:type] == "json"
       render json: {
         user: {
+          id: current_user.id
           username: current_user.username,
           email: current_user.email
         }
