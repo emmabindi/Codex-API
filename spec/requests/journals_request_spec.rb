@@ -24,5 +24,36 @@ RSpec.describe "Journals", type: :request do
         end
       end
     end
+
+    describe 'PUT #update' do
+      context 'when the params are valid' do
+        # before(:example) do
+        #   @journal = create(:journal)
+        #   @updated_title = 'Updated journal'
+          # put "/journals/#{@journal.id}", params: { 
+        #     journal: { 
+        #       title: @updated_title,
+        #       body: 'Blah Blah', 
+        #       user_id: 1
+        #       } }, headers: authenticated_header
+        # end
+
+        # this is not working 
+        
+        before(:example) do
+          @journal = create(:journal)
+          @journal_params = attributes_for(:journal)
+          post "/journals/#{@journal.id}", params: { journal: @journal_params }, headers: authenticated_header
+        end
+  
+        it 'has a http no content response status' do
+          expect(response).to have_http_status(:no_content)
+        end
+  
+        it 'updates the journal in the database' do
+          expect(Journal.find(@journal.id).title).to eq(@updated_title)
+        end
+      end
+    end
   end
 end
