@@ -38,7 +38,9 @@ example_id                                          | status  | run_time        
 ./spec/requests/bookmarks_request_spec.rb[1:1:1]    | passed  | 0.17286 seconds |
 ./spec/requests/bookmarks_request_spec.rb[1:2:1:1]  | passed  | 0.02361 seconds |
 ./spec/requests/bookmarks_request_spec.rb[1:2:1:2]  | passed  | 0.04927 seconds |
-./spec/requests/goals_request_spec.rb[1:1:1]        | passed  | 0.15377 seconds |
+./spec/requests/goals_request_spec.rb[1:1:1]        | passed  | 0.14329 seconds |
+./spec/requests/goals_request_spec.rb[1:2:1:1]      | passed  | 0.02184 seconds |
+./spec/requests/goals_request_spec.rb[1:2:1:2]      | failed  | 0.04159 seconds |
 ./spec/requests/journals_request_spec.rb[1:1:1]     | passed  | 0.13253 seconds |
 ./spec/requests/journals_request_spec.rb[1:1:2:1:1] | passed  | 0.06363 seconds |
 ./spec/requests/journals_request_spec.rb[1:1:2:1:2] | passed  | 0.05967 seconds |
