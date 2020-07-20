@@ -3,7 +3,7 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: [:show, :update, :destroy]
 
   def index
-    goals = current_user.goals
+    goals = current_user.goals.paginate(page: params[:page])
     render json: { goals: goals, current_user: current_user.username}
   end
 
