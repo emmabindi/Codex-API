@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
   before_action :set_bookmark, only: [:show, :update, :destroy]
 
   def index
-    bookmarks = current_user.bookmarks
+    bookmarks = current_user.bookmarks.paginate(page: params[:page])
     render json: { bookmarks: bookmarks, current_user: current_user.username}
   end
 

@@ -1,4 +1,6 @@
 class Goal < ApplicationRecord
+  self.per_page = 5
+
   validates :title, presence: true
   validates :due_date, presence: true
   # validates :completed, presence: true
