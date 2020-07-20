@@ -25,4 +25,43 @@ RSpec.describe "Bookmarks", type: :request do
       end
     end
   end
+
+    describe 'PUT #update' do 
+      context 'when the params are valid' do 
+        before(:example) do 
+          @bookmark = create(:bookmark)
+          @updated_title = "Updated bookmark"
+          put "/bookmarks/#{@bookmark.id}", params: { bookmark: { title: @updated_title } }, headers: authenticated_header
+      end
+
+      it 'has a http no content response' do 
+        expect(response).to have_http_status(:success)
+      end
+
+      it 'updates the bookmark in the database' do
+        expect(Bookmark.find(@bookmark.id).title).to eq(@updated_title)
+      end
+    end
+  end
+
+  describe 'DELETE #destroy' do 
+    context 'when the bookmark is valid' do 
+      before(:example) do
+        bookmark = create(:bookmark)
+        delete "/bookmarks/#{bookmark.id}", headers: authenticated_header
+      end
+
+      it 'has a http no content response' do 
+        expect(response).to have_http_status(:no_content)
+      end
+
+      it 'returns http deleted' do
+        expect(response).to have_http_status(:no_content) 
+      end
+
+      it 'removes the bookmark from the database' do
+        expect(Bookmark.count).to eq(0)
+      end
+    end
+  end
 end

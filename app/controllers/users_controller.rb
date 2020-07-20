@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     # @user.destroy
    current_user.destroy
     # delete all dependent info?? models dependent :destroy ?? 
-    render json: "User Deleted", status: 200
+    render json: "User Deleted", status: 204
   end 
 
   private 
