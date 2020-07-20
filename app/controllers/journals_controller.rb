@@ -3,7 +3,7 @@ class JournalsController < ApplicationController
   before_action :set_journal, only: [:show, :update, :destroy]
 
   def index
-    journals = current_user.journals
+    journals = current_user.journals.paginate(page: params[:page])
     render json: { journals: journals, current_user: current_user.username}
   end
 
