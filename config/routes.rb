@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post "/sign-up", to: "users#create"
   get "/current-user", to: "users#index"
 
+  get "/user/:id/analytics", to: "analytics#index"
+
   delete "/user/:id", to: "users#destroy"
   
   resources :journals
