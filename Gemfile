@@ -51,3 +51,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'knock', git: 'https://github.com/nsarno/knock', branch: 'master', ref: '9214cd027422df8dc31eb67c60032fbbf8fc100b'
 
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'rubocop-rails'
