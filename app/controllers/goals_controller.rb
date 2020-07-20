@@ -1,10 +1,10 @@
 class GoalsController < ApplicationController
   before_action :authenticate_user
-  before_action :set_goal, only: [:show, :update, :destroy]
+  before_action :set_goal, only: %i[show update destroy]
 
   def index
     goals = current_user.goals.paginate(page: params[:page])
-    render json: { goals: goals.as_json(include: :categories), current_user: current_user.username}
+    render json: { goals: goals.as_json(include: :categories), current_user: current_user.username }
   end
 
   def show
@@ -23,10 +23,11 @@ class GoalsController < ApplicationController
 
   def destroy
     @goal.destroy
-    render json: "Goal Deleted", status: 204
+    render json: 'Goal Deleted', status: 204
   end
 
   private
+
   def set_goal
     @goal = Goal.find(params[:id])
   end
