@@ -1,4 +1,6 @@
 class Bookmark < ApplicationRecord
+  self.per_page = 5
+
   validates :title, presence: true
   validates :url, presence: true
 
