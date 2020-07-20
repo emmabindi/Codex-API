@@ -4,7 +4,7 @@ class JournalsController < ApplicationController
 
   def index
     journals = current_user.journals.paginate(page: params[:page])
-    render json: { journals: journals, current_user: current_user.username}
+    render json: { journals: journals.as_json(include: :categories), current_user: current_user.username}
   end
 
   def show

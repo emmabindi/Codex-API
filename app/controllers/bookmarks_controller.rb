@@ -4,7 +4,7 @@ class BookmarksController < ApplicationController
 
   def index
     bookmarks = current_user.bookmarks.paginate(page: params[:page])
-    render json: { bookmarks: bookmarks, current_user: current_user.username}
+    render json: { bookmarks: bookmarks.as_json(include: :categories), current_user: current_user.username}
   end
 
   def show
