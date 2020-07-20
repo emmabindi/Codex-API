@@ -1,8 +1,9 @@
 class Goal < ApplicationRecord
   validates :title, presence: true
   validates :due_date, presence: true
-  validates :completed, presence: true
-  
+  # validates :completed, presence: true
+  validates_inclusion_of:completed, in: [true, false]
+
   validates_length_of :title, 
   in: 3..40,
   too_short: 'Please enter a longer goal title',

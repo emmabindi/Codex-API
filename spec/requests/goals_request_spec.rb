@@ -22,6 +22,44 @@ RSpec.describe "Goals", type: :request do
 
       it 'saves the goal to the database' do
         expect(Goal.last.title).to eq(@goal_params[:title])
+    end
+  end
+
+    describe 'PUT #update' do 
+      context 'when the params are valid' do 
+        before(:example) do 
+          @goal = create(:goal)
+          @updated_title = "Updated goal"
+          put "/goals/#{@goal.id}", params: { goal: { title: @updated_title } }, headers: authenticated_header
+      end
+
+      it 'has a http no content response' do 
+        expect(response).to have_http_status(:success)
+      end
+
+      it 'updates the goal in the database' do
+        expect(Goal.find(@goal.id).title).to eq(@updated_title)
+      end
+    end
+    end
+
+    describe 'DELETE #destroy' do 
+    context 'when the goal is valid' do 
+      before(:example) do
+        goal = create(:goal)
+        delete "/goals/#{goal.id}", headers: authenticated_header
+      end
+
+      it 'has a http no content response' do 
+        expect(response).to have_http_status(:no_content)
+      end
+
+      it 'returns http deleted' do
+        expect(response).to have_http_status(:no_content) 
+      end
+
+      it 'removes the goal from the database' do
+        expect(Goal.count).to eq(0)
       end
     end
   end

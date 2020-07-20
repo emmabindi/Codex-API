@@ -23,7 +23,7 @@ class JournalsController < ApplicationController
 
   def destroy
     @journal.destroy
-    render json: "Journal Deleted", status: 200
+    render json: "Journal Deleted", status: 204
   end
 
   private
