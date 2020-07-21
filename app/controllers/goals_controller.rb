@@ -22,7 +22,7 @@ class GoalsController < ApplicationController
   end
 
   def destroy
-    @goal.destroy
+    @goal.delete
     render json: 'Goal Deleted', status: 204
   end
 
