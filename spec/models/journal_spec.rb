@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Journal, type: :model do
-  # subject {build(:journal)}
+  subject {build(:journal)}
   subject do
     described_class.new(
       title: 'Day 1 of 100 Days of Code',
@@ -11,13 +11,9 @@ RSpec.describe Journal, type: :model do
   end
 
   context 'validations' do
-    # it 'is valid with valid attributes' do
-    #   expect(subject).to be_valid
-    # end
-
-    # it 'has a valid factory' do
-    #   expect(build(:journal)).to be_valid
-    # end
+    it 'has a valid factory' do
+      expect(build(:journal)).to be_valid
+    end
 
     it 'is not valid without a title' do
       subject.title = nil
@@ -50,10 +46,21 @@ RSpec.describe Journal, type: :model do
         .is_at_most(15_000)
         .with_long_message('Please enter a shorter journal of less than 15000 characters')
     end
+
+    it do
+      should validate_length_of(:category)
+        .is_at_least(2)
+        .with_short_message('Please enter a longer category name')
+    end
+
+    it do
+      should validate_length_of(:category)
+        .is_at_most(40)
+        .with_long_message('Please enter a shorter category name of less than 40 characters')
+    end
   end
 
   context 'associations' do
     it { expect(subject).to belong_to(:user) }
-    it { expect(subject).to have_many(:categories).through(:category_joins) }
   end
 end

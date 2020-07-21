@@ -6,7 +6,7 @@ User.create(username: 'Ariana', email: 'h@gmail.com', password: 'password')
 
 puts '4 Users Added'
 
-Bookmark.create(title: 'Polymorphic associations article', url: 'https://cobwwweb.com/rails-has-many-through-polymorphic-association', user_id: 1, description: 'Handy hints for polymorphic associations')
+Bookmark.create(title: 'Polymorphic associations article', url: 'https://cobwwweb.com/rails-has-many-through-polymorphic-association', user_id: 1, description: 'Handy hints for polymorphic associations', category:'Rails')
 
 sleep 1
 
@@ -14,7 +14,7 @@ Bookmark.create(title: 'How to Properly Test a Rails API with Rspec', url: 'http
 
 sleep 1
 
-Bookmark.create(title: 'Ruby Arrays Cheatsheet', url: 'https://www.shortcutfoo.com/app/dojos/ruby-arrays/cheatsheet', user_id: 1, description: 'Summary and description for lots of ruby array methods')
+Bookmark.create(title: 'Ruby Arrays Cheatsheet', url: 'https://www.shortcutfoo.com/app/dojos/ruby-arrays/cheatsheet', user_id: 1, description: 'Summary and description for lots of ruby array methods', category: 'Ruby')
 
 sleep 1
 
@@ -30,22 +30,13 @@ Bookmark.create(title: 'Common Weakness Emuneration', url: 'http://cwe.mitre.org
 
 puts 'Bookmarks added'
 
-Bookmark.first.categories.create(name: 'Rails', user_id: 1)
-Bookmark.second.categories.create(name: 'Rails', user_id: 1)
-Bookmark.third.categories.create(name: 'Ruby', user_id: 1)
-Bookmark.fourth.categories.create(name: 'HTML', user_id: 1)
-Bookmark.fourth.categories.create(name: 'Front End', user_id: 1)
-Bookmark.fifth.categories.create(name: 'Podcasts', user_id: 1)
-Bookmark.find(6).categories.create(name: 'Secure Dev', user_id: 1)
-
-puts 'Added categories to bookmarks'
-
 Goal.create(
   title: 'Implement Styled Components',
   body: 'Utilise styled components with a React app for the first time',
   due_date: '2020-09-30',
   completed: false,
-  user_id: 1
+  user_id: 1,
+  category: 'React'
 )
 
 sleep 1
@@ -70,12 +61,6 @@ Goal.create(
 
 puts '3 Goals added'
 
-Goal.first.categories.create(name: 'React', user_id: 1)
-Goal.second.categories.create(name: 'Front End', user_id: 1)
-Goal.third.categories.create(name: 'Data & Analytics', user_id: 1)
-
-puts 'Added categories to goals'
-
 Journal.create(title: 'Day 1 of 100 Days of Code', body: "If you're on
   Twitter and you're even slightly involved in the dev community,
   there's a chance you've seen the #100DaysOfCode hashtag floating around.
@@ -93,7 +78,7 @@ Journal.create(title: 'Pomodoro clock', body: 'The Pomodoro Technique is
      so that: I can start a 25 minute pomodoro, and the timer
      will go off once 25 minutes has elapsed. I can reset the clock
      for my next pomodoro. I can customise the length of each
-      pomodoro. ', user_id: 1)
+      pomodoro. ', user_id: 1, category: 'Challenge')
 
 sleep 1
 
@@ -138,8 +123,5 @@ Journal.create(title: 'Day 6', body: "Lorem Ipsum is simply dummy text of
     Ipsum.", user_id: 1)
 
 puts '6 Journals added'
-
-Journal.second.categories.create(name: 'JavaScript', user_id: 1)
-Journal.fifth.categories.create(name: 'Ruby', user_id: 1)
 
 puts 'Seed Complete 🎉'

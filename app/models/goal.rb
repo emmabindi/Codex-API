@@ -3,7 +3,6 @@ class Goal < ApplicationRecord
 
   validates :title, presence: true
   validates :due_date, presence: true
-  # validates :completed, presence: true
   validates_inclusion_of :completed, in: [true, false]
 
   validates_length_of :title,
@@ -15,6 +14,11 @@ class Goal < ApplicationRecord
                       maximum: 350,
                       too_long: 'Please enter a shorter goal description of less than 350 characters'
 
+
+  validates_length_of :category,
+  in: 2..40,
+  too_short: 'Please enter a longer category name',
+  too_long: 'Please enter a shorter category name of less than 40 characters'
+
   belongs_to :user
-  has_one :category
 end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Bookmark, type: :model do
-  # subject{ build(:bookmark) }
+  subject{ build(:bookmark) }
   subject do
     described_class.new(
       title: 'Rails Techniques: Using Polymorphic Associations',
@@ -12,9 +12,9 @@ RSpec.describe Bookmark, type: :model do
   end
 
   context 'validations' do
-    # it 'has a valid factory' do
-    #   expect(build(:bookmark)).to be_valid
-    # end
+    it 'has a valid factory' do
+      expect(build(:bookmark)).to be_valid
+    end
 
     it { expect(subject).to validate_presence_of(:title) }
     it { expect(subject).to validate_presence_of(:url) }
@@ -35,6 +35,18 @@ RSpec.describe Bookmark, type: :model do
       should validate_length_of(:description)
         .is_at_most(250)
         .with_long_message('Please enter a shorter description of less than 250 characters')
+    end
+
+    it do
+      should validate_length_of(:category)
+        .is_at_least(2)
+        .with_short_message('Please enter a longer category name')
+    end
+
+    it do
+      should validate_length_of(:category)
+        .is_at_most(40)
+        .with_long_message('Please enter a shorter category name of less than 40 characters')
     end
   end
 

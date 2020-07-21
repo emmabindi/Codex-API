@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Goal, type: :model do
-  # subject {build(:goal)}
+  subject {build(:goal)}
   subject do
     described_class.new(
       title: 'Implement Styled Components',
@@ -13,9 +13,9 @@ RSpec.describe Goal, type: :model do
   end
 
   context 'validations' do
-    # it 'has a valid factory' do
-    #   expect(build(:goal)).to be_valid
-    # end
+    it 'has a valid factory' do
+      expect(build(:goal)).to be_valid
+    end
 
     it { expect(subject).to validate_presence_of(:title) }
     it { expect(subject).to validate_presence_of(:due_date) }
@@ -37,6 +37,18 @@ RSpec.describe Goal, type: :model do
       should validate_length_of(:body)
         .is_at_most(350)
         .with_long_message('Please enter a shorter goal description of less than 350 characters')
+    end
+
+    it do
+      should validate_length_of(:category)
+        .is_at_least(2)
+        .with_short_message('Please enter a longer category name')
+    end
+
+    it do
+      should validate_length_of(:category)
+        .is_at_most(40)
+        .with_long_message('Please enter a shorter category name of less than 40 characters')
     end
   end
 

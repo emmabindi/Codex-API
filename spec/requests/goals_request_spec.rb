@@ -24,6 +24,7 @@ RSpec.describe "Goals", type: :request do
         expect(Goal.last.title).to eq(@goal_params[:title])
     end
   end
+end
 
     describe 'PUT #update' do 
       context 'when the params are valid' do 
@@ -41,7 +42,7 @@ RSpec.describe "Goals", type: :request do
         expect(Goal.find(@goal.id).title).to eq(@updated_title)
       end
     end
-    end
+  end
 
     describe 'DELETE #destroy' do 
     context 'when the goal is valid' do 

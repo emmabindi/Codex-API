@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
 
   def index
     goals = current_user.goals.paginate(page: params[:page])
-    render json: { goals: goals.as_json(include: :categories), current_user: current_user.username }
+    render json: { goals: goals, total_goals: current_user.goals.length, current_user: current_user.username }
   end
 
   def show
@@ -33,6 +33,6 @@ class GoalsController < ApplicationController
   end
 
   def goal_params
-    params.require(:goal).permit(:title, :description, :url, :user_id, :completed)
+    params.require(:goal).permit(:title, :description, :url, :user_id, :completed, :category)
   end
 end
