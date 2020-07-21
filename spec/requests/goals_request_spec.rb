@@ -12,6 +12,7 @@ RSpec.describe "Goals", type: :request do
   describe 'POST #create' do
     context 'when the goal is valid' do
       before(:example) do
+        @goal = create(:goal)
         @goal_params = attributes_for(:goal)
         post '/goals', params: { goal: @goal_params }, headers: authenticated_header
       end

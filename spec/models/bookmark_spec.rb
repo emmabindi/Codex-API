@@ -40,5 +40,6 @@ RSpec.describe Bookmark, type: :model do
 
   context 'associations' do
     it { expect(subject).to belong_to(:user) }
+    it { expect(subject).to belong_to(:category) }
   end
 end

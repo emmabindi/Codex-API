@@ -12,6 +12,7 @@ RSpec.describe 'Bookmarks', type: :request do
   describe 'POST #create' do
     context 'when the bookmark is valid' do
       before(:example) do
+        @bookmark = create(:bookmark)
         @bookmark_params = attributes_for(:bookmark)
         post '/bookmarks', params: { bookmark: @bookmark_params }, headers: authenticated_header
       end
