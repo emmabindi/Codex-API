@@ -20,6 +20,7 @@ Category.create(name:"Testing")
 Category.create(name:"New Tech")
 Category.create(name:"Inspiration")
 Category.create(name:"Other")
+Category.create(name:"N/A")
 
 Bookmark.create(title: 'Polymorphic associations article', url: 'https://cobwwweb.com/rails-has-many-through-polymorphic-association', user_id: 2, description: 'Handy hints for polymorphic associations', category_id:1);
 
@@ -29,15 +30,15 @@ Bookmark.create(title: 'How to Properly Test a Rails API with Rspec', url: 'http
 
 sleep 1
 
-Bookmark.create(title: 'Ruby Arrays Cheatsheet', url: 'https://www.shortcutfoo.com/app/dojos/ruby-arrays/cheatsheet', user_id: 1, description: 'Summary and description for lots of ruby array methods')
+Bookmark.create(title: 'Ruby Arrays Cheatsheet', url: 'https://www.shortcutfoo.com/app/dojos/ruby-arrays/cheatsheet', user_id: 1, description: 'Summary and description for lots of ruby array methods', category_id:4)
 
 sleep 1
 
-Bookmark.create(title: 'HTML Cheatsheet', url: 'https://htmlcheatsheet.com/', user_id: 1, description: 'Fun interface for understanding HTML')
+Bookmark.create(title: 'HTML Cheatsheet', url: 'https://htmlcheatsheet.com/', user_id: 1, description: 'Fun interface for understanding HTML', category_id:1)
 
 sleep 1
 
-Bookmark.create(title: 'Syntax Podcast', url: 'https://overcast.fm/+JaI55hXNA', user_id: 1, description: 'Podcast suggested by Harrison misc web development topics')
+Bookmark.create(title: 'Syntax Podcast', url: 'https://overcast.fm/+JaI55hXNA', user_id: 1, description: 'Podcast suggested by Harrison misc web development topics', category_id:12)
 
 sleep 1
 
@@ -83,7 +84,7 @@ Journal.create(title: 'Day 1 of 100 Days of Code', body: "If you're on
   there's a chance you've seen the #100DaysOfCode hashtag floating around.
   As of this first journal entry, I am holding myself accountable
   to spend 1 hour coding every day for 100 days and to keep a daily
-  log of my learnings, progress, discoveries and questions", user_id: 1)
+  log of my learnings, progress, discoveries and questions", user_id: 1, category_id:13)
 
 sleep 1
 
@@ -104,7 +105,7 @@ Journal.create(title: 'Regex on the brain', body: "Today I completed a
   to solve the problem. I've realised I NEED MORE REGEX PRACTISE, so I
   have started to search for some online tutorials to stretch my skills.
    It's like a language all in itself. I've created a HackerRank account
-    to test some challenges", user_id: 1)
+    to test some challenges", user_id: 1, category_id:3)
 
 sleep 1
 
@@ -124,7 +125,7 @@ Journal.create(title: 'Today I learnt Ruby Stacks', body: 'A stack is a
     stack. In a “Last-In First-Out” (LIFO) fashion. Meaning that when you
      take (pop) an item from the stack, it will be the last item that was
      pushed into it. I used Ruby stacks to solve my Daily Coding
-     Problem', user_id: 1)
+     Problem', user_id: 1, category_id:4)
 
 sleep 1
 
@@ -137,7 +138,7 @@ Journal.create(title: 'Day 6', body: "Lorem Ipsum is simply dummy text of
     popularised in the 1960s with the release of Letraset sheets
     containing Lorem Ipsum passages, and more recently with desktop
     publishing software like Aldus PageMaker including versions of Lorem
-    Ipsum.", user_id: 1)
+    Ipsum.", user_id: 1, category_id:14)
 
 puts '6 Journals added'
 
