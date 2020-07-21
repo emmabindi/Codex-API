@@ -10,6 +10,5 @@ class Journal < ApplicationRecord
                       too_long: 'Please enter a shorter journal of less than 15000 characters'
 
   belongs_to :user
-  has_many :category_joins, as: :categorizable
-  has_many :categories, through: :category_joins
+  has_one :category
 end

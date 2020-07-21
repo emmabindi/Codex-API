@@ -16,6 +16,5 @@ class Goal < ApplicationRecord
                       too_long: 'Please enter a shorter goal description of less than 350 characters'
 
   belongs_to :user
-  has_many :category_joins, as: :categorizable
-  has_many :categories, through: :category_joins
+  has_one :category
 end

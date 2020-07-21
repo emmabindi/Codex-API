@@ -14,6 +14,5 @@ class Bookmark < ApplicationRecord
     too_long: 'Please enter a shorter description of less than 250 characters'
 
   belongs_to :user, dependent: :destroy
-  has_many :category_joins, as: :categorizable
-  has_many :categories, through: :category_joins
+  has_one :category
 end
