@@ -9,10 +9,6 @@ class Journal < ApplicationRecord
                       too_short: 'Please enter a longer journal entry',
                       too_long: 'Please enter a shorter journal of less than 15000 characters'
 
-validates_length_of :category,
-                      in: 2..40,
-                      too_short: 'Please enter a longer category name',
-                      too_long: 'Please enter a shorter category name of less than 40 characters'
-
   belongs_to :user
+  belongs_to :category
 end
