@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user
 
   def index
-    if params[:type] == "json"
+    if params[:type] == 'json'
       render json: {
         user: {
           id: current_user.id,
@@ -15,21 +15,21 @@ class UsersController < ApplicationController
 
   def create
     User.create(user_params)
-    render json: "user created", status: 201
+    render json: 'user created', status: 201
   end
 
   def destroy
     # // check auth first??
     # @user = User.find(params[:id])
     # @user.destroy
-   current_user.destroy
-    # delete all dependent info?? models dependent :destroy ?? 
-    render json: "User Deleted", status: 204
-  end 
+    current_user.destroy
+    # delete all dependent info?? models dependent :destroy ??
+    render json: 'User Deleted', status: 204
+  end
 
-  private 
+  private
 
-  def user_params 
+  def user_params
     params.require(:user).permit(:email, :password)
-  end 
+  end
 end

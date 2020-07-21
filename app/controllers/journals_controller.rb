@@ -1,6 +1,6 @@
 class JournalsController < ApplicationController
   before_action :authenticate_user
-  before_action :set_journal, only: [:show, :update, :destroy]
+  before_action :set_journal, only: %i[show update destroy]
 
   def index
     journals = current_user.journals.paginate(page: params[:page])
@@ -23,10 +23,11 @@ class JournalsController < ApplicationController
 
   def destroy
     @journal.destroy
-    render json: "Journal Deleted", status: 204
+    render json: 'Journal Deleted', status: 204
   end
 
   private
+
   def set_journal
     @journal = Journal.find(params[:id])
   end

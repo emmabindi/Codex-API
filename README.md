@@ -22,3 +22,6 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+ ---- 
+1. How to install and where to find the front end repo 

@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :request do
+RSpec.describe 'Users', type: :request do
   describe 'GET #index' do
     it 'responds successfully to retrieve a users information' do
       get '/current-user', headers: authenticated_header
-    
+
       expect(response).to have_http_status(:success)
     end
   end
@@ -26,4 +26,3 @@ RSpec.describe "Users", type: :request do
     end
   end
 end
-

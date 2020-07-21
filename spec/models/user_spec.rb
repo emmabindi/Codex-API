@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  subject {build(:user)}
+  subject { build(:user) }
 
   context 'validations' do
-    it 'has a valid factory' do 
+    it 'has a valid factory' do
       expect(build(:user)).to be_valid
     end
 
@@ -15,9 +15,9 @@ RSpec.describe User, type: :model do
   end
 
   context 'associations' do
-    it { expect(subject).to have_many(:bookmarks)}
-    it { expect(subject).to have_many(:goals)}
-    it { expect(subject).to have_many(:journals)}
-    it { expect(subject).to have_many(:categories)}
+    it { expect(subject).to have_many(:bookmarks) }
+    it { expect(subject).to have_many(:goals) }
+    it { expect(subject).to have_many(:journals) }
+    it { expect(subject).to have_many(:categories) }
   end
 end
