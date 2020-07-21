@@ -14,19 +14,29 @@ Bookmark.create(title: 'How to Properly Test a Rails API with Rspec', url: 'http
 
 sleep 1
 
-Bookmark.create(title: 'Ruby Arrays Cheatsheet', url: 'https://www.shortcutfoo.com/app/dojos/ruby-arrays/cheatsheet', user_id: 2, description: 'summary and description for lots of ruby array methods')
+Bookmark.create(title: 'Ruby Arrays Cheatsheet', url: 'https://www.shortcutfoo.com/app/dojos/ruby-arrays/cheatsheet', user_id: 1, description: 'summary and description for lots of ruby array methods')
 
 sleep 1
 
-Bookmark.create(title: 'HTML Cheatsheet', url: 'https://htmlcheatsheet.com/', user_id: 2, description: 'Fun interface for understanding HTML')
+Bookmark.create(title: 'HTML Cheatsheet', url: 'https://htmlcheatsheet.com/', user_id: 1, description: 'Fun interface for understanding HTML')
 
-puts ' 4 Bookmarks added'
+sleep 1
+
+Bookmark.create(title: 'Syntax Podcast', url: 'https://overcast.fm/+JaI55hXNA', user_id: 1, description: 'Podcast suggested by Harrison misc web development topics')
+
+sleep 1
+
+Bookmark.create(title: 'Common Weakness Emuneration', url: 'http://cwe.mitre.org/data/definitions/699.html', user_id: 1, description: 'List of software and hardware weakness types, a measuring stick for security tools, and as a baseline for weakness identification, mitigation, and prevention efforts.')
+
+puts 'Bookmarks added'
 
 Bookmark.first.categories.create(name: 'Rails', user_id: 1)
 Bookmark.second.categories.create(name: 'Rails', user_id: 1)
-Bookmark.third.categories.create(name: 'Ruby', user_id: 2)
-Bookmark.fourth.categories.create(name: 'HTML', user_id: 2)
-Bookmark.fourth.categories.create(name: 'Front End', user_id: 2)
+Bookmark.third.categories.create(name: 'Ruby', user_id: 1)
+Bookmark.fourth.categories.create(name: 'HTML', user_id: 1)
+Bookmark.fourth.categories.create(name: 'Front End', user_id: 1)
+Bookmark.fifth.categories.create(name: 'Podcasts', user_id: 1)
+Bookmark.find(6).categories.create(name: 'Secure Dev', user_id: 1)
 
 puts 'Added categories to bookmarks'
 
