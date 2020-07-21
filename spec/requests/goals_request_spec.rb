@@ -12,6 +12,7 @@ RSpec.describe "Goals", type: :request do
   describe 'POST #create' do
     context 'when the goal is valid' do
       before(:example) do
+        @goal = create(:goal)
         @goal_params = attributes_for(:goal)
         post '/goals', params: { goal: @goal_params }, headers: authenticated_header
       end
@@ -24,6 +25,7 @@ RSpec.describe "Goals", type: :request do
         expect(Goal.last.title).to eq(@goal_params[:title])
     end
   end
+end
 
     describe 'PUT #update' do 
       context 'when the params are valid' do 
@@ -41,7 +43,7 @@ RSpec.describe "Goals", type: :request do
         expect(Goal.find(@goal.id).title).to eq(@updated_title)
       end
     end
-    end
+  end
 
     describe 'DELETE #destroy' do 
     context 'when the goal is valid' do 

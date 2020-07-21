@@ -6,5 +6,4 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :goals, dependent: :destroy
   has_many :journals, dependent: :destroy
-  has_many :categories, dependent: :destroy
 end

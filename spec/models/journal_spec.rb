@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Journal, type: :model do
-  # subject {build(:journal)}
+  subject {build(:journal)}
   subject do
     described_class.new(
       title: 'Day 1 of 100 Days of Code',
@@ -11,13 +11,9 @@ RSpec.describe Journal, type: :model do
   end
 
   context 'validations' do
-    # it 'is valid with valid attributes' do
-    #   expect(subject).to be_valid
-    # end
-
-    # it 'has a valid factory' do
-    #   expect(build(:journal)).to be_valid
-    # end
+    it 'has a valid factory' do
+      expect(build(:journal)).to be_valid
+    end
 
     it 'is not valid without a title' do
       subject.title = nil
@@ -54,6 +50,6 @@ RSpec.describe Journal, type: :model do
 
   context 'associations' do
     it { expect(subject).to belong_to(:user) }
-    it { expect(subject).to have_many(:categories).through(:category_joins) }
+    it { expect(subject).to belong_to(:category) }
   end
 end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Bookmark, type: :model do
-  # subject{ build(:bookmark) }
+  subject{ build(:bookmark) }
   subject do
     described_class.new(
       title: 'Rails Techniques: Using Polymorphic Associations',
@@ -12,9 +12,9 @@ RSpec.describe Bookmark, type: :model do
   end
 
   context 'validations' do
-    # it 'has a valid factory' do
-    #   expect(build(:bookmark)).to be_valid
-    # end
+    it 'has a valid factory' do
+      expect(build(:bookmark)).to be_valid
+    end
 
     it { expect(subject).to validate_presence_of(:title) }
     it { expect(subject).to validate_presence_of(:url) }
@@ -40,5 +40,6 @@ RSpec.describe Bookmark, type: :model do
 
   context 'associations' do
     it { expect(subject).to belong_to(:user) }
+    it { expect(subject).to belong_to(:category) }
   end
 end

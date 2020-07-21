@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'categories/index'
   post '/login', to: 'user_token#create'
   get '/status', to: 'status#index'
   get '/status/user', to: 'status#user'
