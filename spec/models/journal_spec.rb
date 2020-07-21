@@ -46,18 +46,6 @@ RSpec.describe Journal, type: :model do
         .is_at_most(15_000)
         .with_long_message('Please enter a shorter journal of less than 15000 characters')
     end
-
-    it do
-      should validate_length_of(:category)
-        .is_at_least(2)
-        .with_short_message('Please enter a longer category name')
-    end
-
-    it do
-      should validate_length_of(:category)
-        .is_at_most(40)
-        .with_long_message('Please enter a shorter category name of less than 40 characters')
-    end
   end
 
   context 'associations' do

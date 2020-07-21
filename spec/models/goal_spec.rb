@@ -38,18 +38,6 @@ RSpec.describe Goal, type: :model do
         .is_at_most(350)
         .with_long_message('Please enter a shorter goal description of less than 350 characters')
     end
-
-    it do
-      should validate_length_of(:category)
-        .is_at_least(2)
-        .with_short_message('Please enter a longer category name')
-    end
-
-    it do
-      should validate_length_of(:category)
-        .is_at_most(40)
-        .with_long_message('Please enter a shorter category name of less than 40 characters')
-    end
   end
 
   context 'associations' do
