@@ -10,11 +10,11 @@ Bookmark.create(title: 'Polymorphic associations article', url: 'https://cobwwwe
 
 sleep 1
 
-Bookmark.create(title: 'How to Properly Test a Rails API with Rspec', url: 'https://medium.com/@sedwardscode/how-to-properly-test-a-rails-api-with-rspec-f15cbe1dfd11', user_id: 1, description: 'How to write tests for GET, POST, PUT, DELTE for Rails API')
+Bookmark.create(title: 'How to Properly Test a Rails API with Rspec', url: 'https://medium.com/@sedwardscode/how-to-properly-test-a-rails-api-with-rspec-f15cbe1dfd11', user_id: 1, description: 'How to write tests for GET, POST, PUT, DELETE for Rails API')
 
 sleep 1
 
-Bookmark.create(title: 'Ruby Arrays Cheatsheet', url: 'https://www.shortcutfoo.com/app/dojos/ruby-arrays/cheatsheet', user_id: 1, description: 'summary and description for lots of ruby array methods')
+Bookmark.create(title: 'Ruby Arrays Cheatsheet', url: 'https://www.shortcutfoo.com/app/dojos/ruby-arrays/cheatsheet', user_id: 1, description: 'Summary and description for lots of ruby array methods')
 
 sleep 1
 
