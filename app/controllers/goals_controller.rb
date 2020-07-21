@@ -4,7 +4,7 @@ class GoalsController < ApplicationController
 
   def index
     goals = current_user.goals.order(id:'desc').paginate(page: params[:page])
-    render json: { goals: goals, total_goals: current_user.goals.length, current_user: current_user.username }
+    render json: { goals: goals.as_json(include: :category), total_goals: current_user.goals.length, current_user: current_user.username }
   end
 
   def show
