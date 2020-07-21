@@ -6,11 +6,26 @@ User.create(username: 'Ariana', email: 'h@gmail.com', password: 'password')
 
 puts '4 Users Added'
 
-Bookmark.create(title: 'Polymorphic associations article', url: 'https://cobwwweb.com/rails-has-many-through-polymorphic-association', user_id: 1, description: 'Handy hints for polymorphic associations')
+Category.create(name:"Front End")
+Category.create(name:"Back End")
+Category.create(name:"Logic")
+Category.create(name:"Functional")
+Category.create(name:"Object Orientated")
+Category.create(name:"Data Analytics")
+Category.create(name:"Secure Development")
+Category.create(name:"Tools")
+Category.create(name:"Project Ideas")
+Category.create(name:"Network & Internet")
+Category.create(name:"Testing")
+Category.create(name:"New Tech")
+Category.create(name:"Inspiration")
+Category.create(name:"Other")
+
+Bookmark.create(title: 'Polymorphic associations article', url: 'https://cobwwweb.com/rails-has-many-through-polymorphic-association', user_id: 2, description: 'Handy hints for polymorphic associations', category_id:1);
 
 sleep 1
 
-Bookmark.create(title: 'How to Properly Test a Rails API with Rspec', url: 'https://medium.com/@sedwardscode/how-to-properly-test-a-rails-api-with-rspec-f15cbe1dfd11', user_id: 1, description: 'How to write tests for GET, POST, PUT, DELETE for Rails API')
+Bookmark.create(title: 'How to Properly Test a Rails API with Rspec', url: 'https://medium.com/@sedwardscode/how-to-properly-test-a-rails-api-with-rspec-f15cbe1dfd11', user_id: 1, description: 'How to write tests for GET, POST, PUT, DELETE for Rails API', category_id:11)
 
 sleep 1
 
@@ -26,26 +41,17 @@ Bookmark.create(title: 'Syntax Podcast', url: 'https://overcast.fm/+JaI55hXNA', 
 
 sleep 1
 
-Bookmark.create(title: 'Common Weakness Emuneration', url: 'http://cwe.mitre.org/data/definitions/699.html', user_id: 1, description: 'List of software and hardware weakness types, a measuring stick for security tools, and as a baseline for weakness identification, mitigation, and prevention efforts.')
+Bookmark.create(title: 'Common Weakness Emuneration', url: 'http://cwe.mitre.org/data/definitions/699.html', user_id: 1, description: 'List of software and hardware weakness types, a measuring stick for security tools, and as a baseline for weakness identification, mitigation, and prevention efforts.', category_id: 7)
 
 puts 'Bookmarks added'
-
-Bookmark.first.categories.create(name: 'Rails', user_id: 1)
-Bookmark.second.categories.create(name: 'Rails', user_id: 1)
-Bookmark.third.categories.create(name: 'Ruby', user_id: 1)
-Bookmark.fourth.categories.create(name: 'HTML', user_id: 1)
-Bookmark.fourth.categories.create(name: 'Front End', user_id: 1)
-Bookmark.fifth.categories.create(name: 'Podcasts', user_id: 1)
-Bookmark.find(6).categories.create(name: 'Secure Dev', user_id: 1)
-
-puts 'Added categories to bookmarks'
 
 Goal.create(
   title: 'Implement Styled Components',
   body: 'Utilise styled components with a React app for the first time',
   due_date: '2020-09-30',
   completed: false,
-  user_id: 1
+  user_id: 1,
+  category_id: 1
 )
 
 sleep 1
@@ -55,7 +61,8 @@ Goal.create(
   body: 'To structure my work day and remind me to take breaks to stretch my eyes and also git commit my work',
   due_date: '2020-12-10',
   completed: false,
-  user_id: 1
+  user_id: 1,
+  category_id: 1
 )
 
 sleep 1
@@ -65,16 +72,11 @@ Goal.create(
   body: '13 hour course to learn data visualization with D3/JS',
   due_date: '2020-07-31',
   completed: true,
-  user_id: 1
+  user_id: 1,
+  category_id: 6
 )
 
 puts '3 Goals added'
-
-Goal.first.categories.create(name: 'React', user_id: 1)
-Goal.second.categories.create(name: 'Front End', user_id: 1)
-Goal.third.categories.create(name: 'Data & Analytics', user_id: 1)
-
-puts 'Added categories to goals'
 
 Journal.create(title: 'Day 1 of 100 Days of Code', body: "If you're on
   Twitter and you're even slightly involved in the dev community,
@@ -93,7 +95,7 @@ Journal.create(title: 'Pomodoro clock', body: 'The Pomodoro Technique is
      so that: I can start a 25 minute pomodoro, and the timer
      will go off once 25 minutes has elapsed. I can reset the clock
      for my next pomodoro. I can customise the length of each
-      pomodoro. ', user_id: 1)
+      pomodoro. ', user_id: 1, category_id: 1)
 
 sleep 1
 
@@ -111,7 +113,7 @@ Journal.create(title: 'Big O', body: "Saw an article on Twitter which
   is used in Computer Science to describe the performance or complexity
   of an algorithm. Big O specifically describes the worst-case scenario,
   and can be used to describe the execution time required or the space
-  used by an algorithm.\n", user_id: 1)
+  used by an algorithm.", user_id: 1, category_id:2)
 
 sleep 1
 
@@ -138,8 +140,5 @@ Journal.create(title: 'Day 6', body: "Lorem Ipsum is simply dummy text of
     Ipsum.", user_id: 1)
 
 puts '6 Journals added'
-
-Journal.second.categories.create(name: 'JavaScript', user_id: 1)
-Journal.fifth.categories.create(name: 'Ruby', user_id: 1)
 
 puts 'Seed Complete 🎉'

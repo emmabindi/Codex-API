@@ -7,10 +7,12 @@ RSpec.describe 'Journals', type: :request do
 
       expect(response).to have_http_status(:success)
     end
+  end
 
     describe 'POST #create' do
       context 'when the journal is valid' do
         before(:example) do
+          @journal = create(:journal)
           @journal_params = attributes_for(:journal)
           post '/journals', params: { journal: @journal_params }, headers: authenticated_header
         end
@@ -24,7 +26,6 @@ RSpec.describe 'Journals', type: :request do
         end
       end
     end
-  end
 
   describe 'PUT #update' do
     context 'when the params are valid' do

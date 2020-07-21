@@ -3,8 +3,8 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: %i[show update destroy]
 
   def index
-    goals = current_user.goals.paginate(page: params[:page])
-    render json: { goals: goals.as_json(include: :categories), current_user: current_user.username }
+    goals = current_user.goals.order(id:'desc').paginate(page: params[:page])
+    render json: { goals: goals.as_json(include: :category), total_goals: current_user.goals.length, current_user: current_user.username }
   end
 
   def show
@@ -33,6 +33,6 @@ class GoalsController < ApplicationController
   end
 
   def goal_params
-    params.require(:goal).permit(:title, :description, :url, :user_id, :completed)
+    params.require(:goal).permit(:title, :description, :url, :user_id, :completed, :category_id)
   end
 end

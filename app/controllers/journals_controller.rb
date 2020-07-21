@@ -3,8 +3,8 @@ class JournalsController < ApplicationController
   before_action :set_journal, only: %i[show update destroy]
 
   def index
-    journals = current_user.journals.paginate(page: params[:page])
-    render json: { journals: journals.as_json(include: :categories), current_user: current_user.username }
+    journals = current_user.journals.order(id: 'desc').paginate(page: params[:page])
+    render json: { journals: journals.as_json(include: :category), total_journals: current_user.journals.length, current_user: current_user.username }
   end
 
   def show
@@ -33,6 +33,6 @@ class JournalsController < ApplicationController
   end
 
   def journal_params
-    params.require(:journal).permit(:title, :body, :user_id)
+    params.require(:journal).permit(:title, :body, :user_id, :category_id)
   end
 end

@@ -1,14 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
-  subject do
-    described_class.new(
-      name: 'Back End',
-      user_id: 1
-    )
-  end
+  subject{ build(:category) }
 
   context 'validations' do
+    it 'has a valid factory' do
+      expect(build(:category)).to be_valid
+    end
+
     it { expect(subject).to validate_presence_of(:name) }
 
     it do
@@ -25,6 +24,8 @@ RSpec.describe Category, type: :model do
   end
 
   context 'associations' do
-    it { expect(subject).to belong_to(:user) }
+    it { expect(subject).to have_many(:bookmarks) }
+    it { expect(subject).to have_many(:goals) }
+    it { expect(subject).to have_many(:journals) }
   end
 end
