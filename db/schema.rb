@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_075307) do
+ActiveRecord::Schema.define(version: 2020_07_21_075516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 2020_07_21_075307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_bookmarks_on_category_id"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
@@ -40,6 +42,8 @@ ActiveRecord::Schema.define(version: 2020_07_21_075307) do
     t.boolean "completed", default: false, null: false
     t.bigint "user_id", null: false
     t.date "completed_date"
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_goals_on_category_id"
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
@@ -49,6 +53,8 @@ ActiveRecord::Schema.define(version: 2020_07_21_075307) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.bigint "category_id", null: false
+    t.index ["category_id"], name: "index_journals_on_category_id"
     t.index ["user_id"], name: "index_journals_on_user_id"
   end
 
@@ -60,7 +66,10 @@ ActiveRecord::Schema.define(version: 2020_07_21_075307) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "bookmarks", "categories"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "goals", "categories"
   add_foreign_key "goals", "users"
+  add_foreign_key "journals", "categories"
   add_foreign_key "journals", "users"
 end
