@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_21_075516) do
+ActiveRecord::Schema.define(version: 2020_07_22_052613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,9 @@ ActiveRecord::Schema.define(version: 2020_07_21_075516) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
+    t.bigint "language_id", null: false
     t.index ["category_id"], name: "index_bookmarks_on_category_id"
+    t.index ["language_id"], name: "index_bookmarks_on_language_id"
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
@@ -43,7 +45,9 @@ ActiveRecord::Schema.define(version: 2020_07_21_075516) do
     t.bigint "user_id", null: false
     t.date "completed_date"
     t.bigint "category_id", null: false
+    t.bigint "language_id", null: false
     t.index ["category_id"], name: "index_goals_on_category_id"
+    t.index ["language_id"], name: "index_goals_on_language_id"
     t.index ["user_id"], name: "index_goals_on_user_id"
   end
 
@@ -54,8 +58,16 @@ ActiveRecord::Schema.define(version: 2020_07_21_075516) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
+    t.bigint "language_id", null: false
     t.index ["category_id"], name: "index_journals_on_category_id"
+    t.index ["language_id"], name: "index_journals_on_language_id"
     t.index ["user_id"], name: "index_journals_on_user_id"
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -67,9 +79,12 @@ ActiveRecord::Schema.define(version: 2020_07_21_075516) do
   end
 
   add_foreign_key "bookmarks", "categories"
+  add_foreign_key "bookmarks", "languages"
   add_foreign_key "bookmarks", "users"
   add_foreign_key "goals", "categories"
+  add_foreign_key "goals", "languages"
   add_foreign_key "goals", "users"
   add_foreign_key "journals", "categories"
+  add_foreign_key "journals", "languages"
   add_foreign_key "journals", "users"
 end

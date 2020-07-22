@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'language/index'
   get 'categories/index'
   post '/login', to: 'user_token#create'
   get '/status', to: 'status#index'

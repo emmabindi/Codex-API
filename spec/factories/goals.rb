@@ -8,5 +8,6 @@ FactoryBot.define do
 
     association :user
     association :category
+    association :language
   end
 end
