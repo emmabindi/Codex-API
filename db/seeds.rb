@@ -22,27 +22,58 @@ Category.create(name:"Inspiration")
 Category.create(name:"Other")
 Category.create(name:"N/A")
 
-Bookmark.create(title: 'Polymorphic associations article', url: 'https://cobwwweb.com/rails-has-many-through-polymorphic-association', user_id: 2, description: 'Handy hints for polymorphic associations', category_id:1);
+puts "Category List Added"
+
+Language.create(name:"JavaScript")
+Language.create(name:"Python")
+Language.create(name:"Java")
+Language.create(name:"C++")
+Language.create(name:"Swift")
+Language.create(name:"Typescript")
+Language.create(name:"Go")
+Language.create(name:"SQL")
+Language.create(name:"Ruby")
+Language.create(name:"R")
+Language.create(name:"PHP")
+Language.create(name:"Perl")
+Language.create(name:"Kotlin")
+Language.create(name:"C#")
+Language.create(name:"Rust")
+Language.create(name:".NET")
+Language.create(name:"Scheme")
+Language.create(name:"Erlang")
+Language.create(name:"Scala")
+Language.create(name:"Elixir")
+Language.create(name:"Haskell")
+Language.create(name:"COBOL")
+Language.create(name:"HTML")
+Language.create(name:"CSS")
+Language.create(name:"Other")
+Language.create(name:"N/A")
+
+puts "Language Options Added"
+
+Bookmark.create(title: 'Polymorphic associations article', url: 'https://cobwwweb.com/rails-has-many-through-polymorphic-association', user_id: 2, description: 'Handy hints for polymorphic associations', category_id:1, language_id: 8);
 
 sleep 1
 
-Bookmark.create(title: 'How to Properly Test a Rails API with Rspec', url: 'https://medium.com/@sedwardscode/how-to-properly-test-a-rails-api-with-rspec-f15cbe1dfd11', user_id: 1, description: 'How to write tests for GET, POST, PUT, DELETE for Rails API', category_id:11)
+Bookmark.create(title: 'How to Properly Test a Rails API with Rspec', url: 'https://medium.com/@sedwardscode/how-to-properly-test-a-rails-api-with-rspec-f15cbe1dfd11', user_id: 1, description: 'How to write tests for GET, POST, PUT, DELETE for Rails API', category_id:11, language_id:9)
 
 sleep 1
 
-Bookmark.create(title: 'Ruby Arrays Cheatsheet', url: 'https://www.shortcutfoo.com/app/dojos/ruby-arrays/cheatsheet', user_id: 1, description: 'Summary and description for lots of ruby array methods', category_id:4)
+Bookmark.create(title: 'Ruby Arrays Cheatsheet', url: 'https://www.shortcutfoo.com/app/dojos/ruby-arrays/cheatsheet', user_id: 1, description: 'Summary and description for lots of ruby array methods', category_id:4, language_id:9)
 
 sleep 1
 
-Bookmark.create(title: 'HTML Cheatsheet', url: 'https://htmlcheatsheet.com/', user_id: 1, description: 'Fun interface for understanding HTML', category_id:1)
+Bookmark.create(title: 'HTML Cheatsheet', url: 'https://htmlcheatsheet.com/', user_id: 1, description: 'Fun interface for understanding HTML', category_id:1, language_id:23)
 
 sleep 1
 
-Bookmark.create(title: 'Syntax Podcast', url: 'https://overcast.fm/+JaI55hXNA', user_id: 1, description: 'Podcast suggested by Harrison misc web development topics', category_id:12)
+Bookmark.create(title: 'Syntax Podcast', url: 'https://overcast.fm/+JaI55hXNA', user_id: 1, description: 'Podcast suggested by Harrison misc web development topics', category_id:12, language_id:26)
 
 sleep 1
 
-Bookmark.create(title: 'Common Weakness Emuneration', url: 'http://cwe.mitre.org/data/definitions/699.html', user_id: 1, description: 'List of software and hardware weakness types, a measuring stick for security tools, and as a baseline for weakness identification, mitigation, and prevention efforts.', category_id: 7)
+Bookmark.create(title: 'Common Weakness Emuneration', url: 'http://cwe.mitre.org/data/definitions/699.html', user_id: 1, description: 'List of software and hardware weakness types, a measuring stick for security tools, and as a baseline for weakness identification, mitigation, and prevention efforts.', category_id: 7, language_id:26)
 
 puts 'Bookmarks added'
 
@@ -52,7 +83,8 @@ Goal.create(
   due_date: '2020-09-30',
   completed: false,
   user_id: 1,
-  category_id: 1
+  category_id: 1, 
+  language_id: 1
 )
 
 sleep 1
@@ -63,7 +95,8 @@ Goal.create(
   due_date: '2020-12-10',
   completed: false,
   user_id: 1,
-  category_id: 1
+  category_id: 1, 
+  language_id: 1
 )
 
 sleep 1
@@ -74,7 +107,8 @@ Goal.create(
   due_date: '2020-07-31',
   completed: true,
   user_id: 1,
-  category_id: 6
+  category_id: 6, 
+  language_id: 1
 )
 
 puts '3 Goals added'
@@ -84,7 +118,7 @@ Journal.create(title: 'Day 1 of 100 Days of Code', body: "If you're on
   there's a chance you've seen the #100DaysOfCode hashtag floating around.
   As of this first journal entry, I am holding myself accountable
   to spend 1 hour coding every day for 100 days and to keep a daily
-  log of my learnings, progress, discoveries and questions", user_id: 1, category_id:13)
+  log of my learnings, progress, discoveries and questions", user_id: 1, category_id:13, language_id:26)
 
 sleep 1
 
@@ -96,7 +130,7 @@ Journal.create(title: 'Pomodoro clock', body: 'The Pomodoro Technique is
      so that: I can start a 25 minute pomodoro, and the timer
      will go off once 25 minutes has elapsed. I can reset the clock
      for my next pomodoro. I can customise the length of each
-      pomodoro. ', user_id: 1, category_id: 1)
+      pomodoro. ', user_id: 1, category_id: 1, language_id:1)
 
 sleep 1
 
@@ -105,7 +139,7 @@ Journal.create(title: 'Regex on the brain', body: "Today I completed a
   to solve the problem. I've realised I NEED MORE REGEX PRACTISE, so I
   have started to search for some online tutorials to stretch my skills.
    It's like a language all in itself. I've created a HackerRank account
-    to test some challenges", user_id: 1, category_id:3)
+    to test some challenges", user_id: 1, category_id:3, language_id:26)
 
 sleep 1
 
@@ -114,18 +148,18 @@ Journal.create(title: 'Big O', body: "Saw an article on Twitter which
   is used in Computer Science to describe the performance or complexity
   of an algorithm. Big O specifically describes the worst-case scenario,
   and can be used to describe the execution time required or the space
-  used by an algorithm.", user_id: 1, category_id:2)
+  used by an algorithm.", user_id: 1, category_id:2, language_id:26)
 
 sleep 1
 
 Journal.create(title: 'Today I learnt Ruby Stacks', body: 'A stack is a
-  data structure which you can use as a “to-do” list. You keep taking
+  data structure which you can use as a “to-do" list. You keep taking
   elements from the stack & processing them until the stack is empty. The
    big thing to notice here is that new items are added to the top of the
-    stack. In a “Last-In First-Out” (LIFO) fashion. Meaning that when you
+    stack. In a “Last-In First-Out" (LIFO) fashion. Meaning that when you
      take (pop) an item from the stack, it will be the last item that was
      pushed into it. I used Ruby stacks to solve my Daily Coding
-     Problem', user_id: 1, category_id:4)
+     Problem', user_id: 1, category_id:4, language_id:9)
 
 sleep 1
 
@@ -138,7 +172,7 @@ Journal.create(title: 'Day 6', body: "Lorem Ipsum is simply dummy text of
     popularised in the 1960s with the release of Letraset sheets
     containing Lorem Ipsum passages, and more recently with desktop
     publishing software like Aldus PageMaker including versions of Lorem
-    Ipsum.", user_id: 1, category_id:14)
+    Ipsum.", user_id: 1, category_id:14, language_id: 26)
 
 puts '6 Journals added'
 
