@@ -33,6 +33,6 @@ class JournalsController < ApplicationController
   end
 
   def journal_params
-    params.require(:journal).permit(:title, :body, :user_id, :category_id)
+    params.require(:journal).permit(:title, :body, :user_id, :category_id, :language_id)
   end
 end
