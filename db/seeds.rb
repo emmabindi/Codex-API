@@ -114,7 +114,7 @@ Goal.create(
 
 puts '3 Goals added'
 
-Journal.create(title: 'Day 1 of 100 Days of Code', body: "{\"blocks\":[{\"key\":\"5o97r\",\"text\":\"If you're on Twitter and you're even slightly involved in the dev community, there's a chance you've seen the #100DaysOfCode hashtag floating around.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}},{\"key\":\"2kja3\",\"text\":\"As of this first journal entry, I am holding myself accountable to spend 1 hour coding every day for 100 days and to keep a daily log of my learnings, progress, discoveries and questions! \",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[{\"offset\":0,\"length\":31,\"style\":\"BOLD\"}],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}", user_id: 1, category_id:13, language_id:26)
+Journal.create(title: 'Day 1 of 100 Days of Code', body: "{\"blocks\":[{\"key\":\"5setg\",\"text\":\"If you're on Twitter and you're even slightly involved in the dev community, there's a chance you've seen the #100DaysOfCode hashtag floating around. As of this first journal entry, I am holding myself accountable to spend 1 hour coding every day for 100 days and to keep a daily log of my learnings, progress, discoveries and questions.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}", user_id: 1, category_id:13, language_id:26)
 
 sleep 1
 
@@ -122,21 +122,11 @@ Journal.create(title: 'Pomodoro clock', body: "{\"blocks\":[{\"key\":\"cnsda\",\
 
 sleep 1
 
-Journal.create(title: 'Regex on the brain', body: "Today I completed a
-  coding challenge for a job application which required my to use Regex
-  to solve the problem. I've realised I NEED MORE REGEX PRACTISE, so I
-  have started to search for some online tutorials to stretch my skills.
-   It's like a language all in itself. I've created a HackerRank account
-    to test some challenges", user_id: 1, category_id:3, language_id:26)
+Journal.create(title: 'Regex on the brain', body: "{\"blocks\":[{\"key\":\"9ijpa\",\"text\":\"Today I completed a coding challenge for a job application which required my to use Regex to solve the problem. I've realised I NEED MORE REGEX PRACTISE, so I have started to search for some online tutorials to stretch my skills. It's like a language all in itself. I've created a HackerRank account to test some challenges\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}", user_id: 1, category_id:3, language_id:26)
 
 sleep 1
 
-Journal.create(title: 'Big O', body: "Saw an article on Twitter which
-  prompted me to refresh my knowledge of CS fundamentals. Big O notation
-  is used in Computer Science to describe the performance or complexity
-  of an algorithm. Big O specifically describes the worst-case scenario,
-  and can be used to describe the execution time required or the space
-  used by an algorithm.", user_id: 1, category_id:2, language_id:26)
+Journal.create(title: 'Big O', body: "{\"blocks\":[{\"key\":\"2h00j\",\"text\":\"Saw an article on Twitter which prompted me to refresh my knowledge of CS fundamentals. Big O notation is used in Computer Science to describe the performance or complexity of an algorithm. Big O specifically describes the worst-case scenario, and can be used to describe the execution time required or the space used by an algorithm.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}", user_id: 1, category_id:2, language_id:26)
 
 sleep 1
 
@@ -144,16 +134,7 @@ Journal.create(title: 'Today I learnt Ruby Stacks', body: "{\"blocks\":[{\"key\"
 
 sleep 1
 
-Journal.create(title: 'Day 6', body: "Lorem Ipsum is simply dummy text of
-   the printing and typesetting industry. Lorem Ipsum has been the
-   industry's standard dummy text ever since the 1500s, when an unknown
-   printer took a galley of type and scrambled it to make a type specimen
-    book. It has survived not only five centuries, but also the leap into
-    electronic typesetting, remaining essentially unchanged. It was
-    popularised in the 1960s with the release of Letraset sheets
-    containing Lorem Ipsum passages, and more recently with desktop
-    publishing software like Aldus PageMaker including versions of Lorem
-    Ipsum.", user_id: 1, category_id:14, language_id: 26)
+Journal.create(title: 'Day 6', body: "{\"blocks\":[{\"key\":\"101ft\",\"text\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}", user_id: 1, category_id:14, language_id: 26)
 
 puts '6 Journals added'
 
