@@ -22,7 +22,7 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    @bookmark.destroy
+    @bookmark.delete
     render json: 'Bookmark Deleted', status: 204
   end
 
