@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 32f59f3aca034a66676f94372ba9e57236a7204d
+  branch: master
+  specs:
+    faker (2.13.0)
+      i18n (>= 1.6, < 2)
+
+GIT
   remote: https://github.com/nsarno/knock
   revision: 9214cd027422df8dc31eb67c60032fbbf8fc100b
   ref: 9214cd027422df8dc31eb67c60032fbbf8fc100b
@@ -226,6 +234,7 @@ DEPENDENCIES
   byebug
   database_cleaner
   factory_bot_rails
+  faker!
   knock!
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
