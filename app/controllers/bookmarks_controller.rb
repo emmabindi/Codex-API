@@ -4,13 +4,7 @@ class BookmarksController < ApplicationController
 
   def index
     bookmarks = current_user.bookmarks.order(id:'desc').paginate(page: params[:page])
-    render json: { bookmarks: bookmarks.as_json(include: [:category, :language]), total_bookmarks: current_user.bookmarks.length, current_user: current_user.username }
-
-      # render json: { bookmarks: bookmarks.as_json(include: [:category, :language], total_bookmarks: current_user.bookmarks.length, current_user: current_user.username }
-
-    # // almost working:
-    # render json: { bookmarks: bookmarks.as_json(:include => {:category => {:include => :name}, :language => {:include => :name}}), total_bookmarks: current_user.bookmarks.length, current_user: current_user.username }
-
+    render json: { bookmarks: bookmarks.as_json(include: [:category, :language]), total_entries: current_user.bookmarks.length, current_user: current_user.username }
   end
 
   def show
