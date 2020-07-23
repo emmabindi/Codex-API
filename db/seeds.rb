@@ -106,6 +106,7 @@ Goal.create(
   body: '13 hour course to learn data visualization with D3/JS',
   due_date: '2020-07-31',
   completed: true,
+  completed_date: '2020-08-01',
   user_id: 1,
   category_id: 6, 
   language_id: 1
