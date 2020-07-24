@@ -1,5 +1,8 @@
 env:
   RUBY_VERSION: 2.7.1
+  PGHOST: 127.0.0.1
+  PGUSER: postgres
+  RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
 
 name: Rails Quality Check
 on: [push, pull_request]
@@ -15,6 +18,44 @@ jobs:
           ruby-version: ${ { env.RUBY_VERSION } }
       - name: Install Rubocop For Rails
         run: gem install rubocop-rails
-      - name: Check code
+      - name: Check code style 
         run: rubocop
-        
+  rails-test:
+    name: RSpec Tests
+    needs: rubocop-linting
+    # What do I put here
+    runs-on: macOS-Catalina-10.15.3
+    services:
+      db:
+        image: postgres:11@sha256:85d79cba2d4942dad7c99f84ec389a5b9cc84fb07a3dcd3aff0fb06948cdc03b
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready 
+          --health-interval 10s 
+          --health-timeout 5s 
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+      - name: Setup Postgresql
+        run: sudo apt-get -yqq install libpq-dev
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundler install
+      - name: Create Database
+        run: |
+          RAILS_ENV=test
+          bundler exec rails db:create
+          bundler exec rails db:migrate
+      - name: Run RSpec tests
+        run: bin/rspec
+      - name: Upload SimpleCov Report
+        uses: actions/upload-artifact@master
+        if: always()
+        with:
+          # Name of the Downloaded file
+          name: simplecov-report
+          path: coverage

@@ -12,6 +12,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/spec/examples.txt
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
@@ -26,4 +27,5 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/spec/examples.txt
+# Ignore SimpleCov reports
+/coverage/*
