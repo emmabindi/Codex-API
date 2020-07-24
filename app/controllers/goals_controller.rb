@@ -3,8 +3,8 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: %i[show update destroy]
 
   def index
-    goals = current_user.goals.order(id:'desc').paginate(page: params[:page])
-    render json: { goals: goals.as_json(include: [:category, :language]), total_entries: current_user.goals.length, current_user: current_user.username }
+    goals = current_user.goals.order(id: 'desc').paginate(page: params[:page])
+    render json: { goals: goals.as_json(include: %i[category language]), total_entries: current_user.goals.length, current_user: current_user.username }
   end
 
   def show
@@ -13,17 +13,17 @@ class GoalsController < ApplicationController
 
   def create
     goal = current_user.goals.create(goal_params)
-    render json: goal, status: 201
+    render json: goal, status: :created
   end
 
   def update
     @goal.update(goal_params)
-    render json: 'Goal Updated', status: 200
+    render json: 'Goal Updated', status: :ok
   end
 
   def destroy
     @goal.delete
-    render json: 'Goal Deleted', status: 204
+    render json: 'Goal Deleted', status: :no_content
   end
 
   private

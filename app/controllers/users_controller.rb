@@ -15,12 +15,12 @@ class UsersController < ApplicationController
 
   def create
     User.create(user_params)
-    render json: 'user created', status: 201
+    render json: 'user created', status: :created
   end
 
   def destroy
     current_user.destroy
-    render json: 'User Deleted', status: 204
+    render json: 'User Deleted', status: :no_content
   end
 
   private

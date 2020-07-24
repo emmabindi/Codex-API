@@ -5,8 +5,8 @@ class Language < ApplicationRecord
 
   validates :name, presence: true
 
-  validates_length_of :name,
-  in: 2..40,
-  too_short: 'Please enter a longer language name',
-  too_long: 'Please enter a shorter language name of less than 40 characters'
+  validates :name,
+            length: { in: 2..40,
+                      too_short: 'Please enter a longer language name',
+                      too_long: 'Please enter a shorter language name of less than 40 characters' }
 end
