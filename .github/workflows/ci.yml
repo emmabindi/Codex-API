@@ -23,7 +23,6 @@ jobs:
   rails-test:
     name: RSpec Tests
     needs: rubocop-linting
-    # What do I put here
     runs-on: ubuntu-18.04
     services:
       db:
