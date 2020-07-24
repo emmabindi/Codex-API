@@ -2,7 +2,7 @@ class AnalyticsController < ApplicationController
   before_action :authenticate_user
 
   def entries_by_date 
-    # http://localhost:3000/user/1/analytics/activity
+    # http://localhost:3000/analytics/activity
     bookmarks = current_user.bookmarks.group_by_day(:created_at, format: "%Y-%m-%d", range: 4.weeks.ago.midnight..Time.now).count
     journals = current_user.journals.group_by_day(:created_at, format: "%Y-%m-%d", range: 4.weeks.ago.midnight..Time.now).count
     goals = current_user.goals.group_by_day(:created_at, format: "%Y-%m-%d", range: 4.weeks.ago.midnight..Time.now).count
@@ -23,7 +23,7 @@ class AnalyticsController < ApplicationController
   end
 
   def categories 
-    # http://localhost:3000/user/1/analytics/categories
+    # http://localhost:3000/analytics/categories
     bookmarks_by_category = current_user.bookmarks.joins(:category).group(:name).count(:name)
     goals_by_category = current_user.goals.joins(:category).group(:name).count(:name)
     journals_by_category = current_user.journals.joins(:category).group(:name).count(:name)
@@ -44,7 +44,7 @@ class AnalyticsController < ApplicationController
   end 
 
   def languages
-    # http://localhost:3000/user/1/analytics/languages
+    # http://localhost:3000/analytics/languages
     bookmarks_by_language = current_user.bookmarks.joins(:language).group(:name).count(:name)
     goals_by_language = current_user.goals.joins(:language).group(:name).count(:name)
     journals_by_language = current_user.journals.joins(:language).group(:name).count(:name)
@@ -65,7 +65,7 @@ class AnalyticsController < ApplicationController
   end
 
   def counts
-    # http://localhost:3000/user/1/analytics/counts
+    # http://localhost:3000/analytics/counts
     bookmarks_total = current_user.bookmarks.length
     journals_total = current_user.journals.length
     completed_goals = Goal.where(completed: true).length
