@@ -24,7 +24,7 @@ jobs:
     name: RSpec Tests
     needs: rubocop-linting
     # What do I put here
-    runs-on: macOS-Catalina-10.15.3
+    runs-on: ubuntu-18.04
     services:
       db:
         image: postgres:11@sha256:85d79cba2d4942dad7c99f84ec389a5b9cc84fb07a3dcd3aff0fb06948cdc03b
