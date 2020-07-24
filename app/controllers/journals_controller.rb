@@ -4,7 +4,11 @@ class JournalsController < ApplicationController
 
   def index
     journals = current_user.journals.order(id: 'desc').paginate(page: params[:page])
-    render json: { journals: journals.as_json(include: %i[category language]), total_entries: current_user.journals.length, current_user: current_user.username }
+    render json: {
+      journals: journals.as_json(include: %i[category language]),
+      total_entries: current_user.journals.length,
+      current_user: current_user.username
+    }
   end
 
   def show
@@ -33,6 +37,12 @@ class JournalsController < ApplicationController
   end
 
   def journal_params
-    params.require(:journal).permit(:title, :body, :user_id, :category_id, :language_id)
+    params.require(:journal).permit(
+      :title,
+      :body,
+      :user_id,
+      :category_id,
+      :language_id
+    )
   end
 end

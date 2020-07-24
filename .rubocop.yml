@@ -25,6 +25,8 @@ AllCops:
     - 'tmp/**/*'
     - 'vendor/**/*'
     - './*'
+    - 'app/bin/**'
+    - 'app/controllers/users_controller.rb'
   NewCops: enable
 
 Style/FrozenStringLiteralComment:
@@ -69,5 +71,5 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: true
 
-Layout/LineLength: 
-  Max: 120
+Metrics/MethodLength:
+  Max: 40
