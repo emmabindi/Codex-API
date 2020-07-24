@@ -1,5 +1,6 @@
 env:
-  RUBY_VERSION: 2.7.1p83
+  RUBY_VERSION: 2.7.1
+
 name: Rails Quality Check
 on: [push, pull_request]
 
