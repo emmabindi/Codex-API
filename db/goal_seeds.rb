@@ -1,4 +1,4 @@
-100.times do 
+80.times do 
   Goal.create(
     title: Faker::Lorem.sentence(word_count: 6),
     body: Faker::Lorem.paragraph(sentence_count: 3),
@@ -68,5 +68,5 @@ puts 'Goals added'
 goals = Goal.all 
 
 goals.each do | goal |
-  goal.update_attribute(:created_at, (rand*10).days.ago)
+  goal.update_attribute(:created_at, (rand*28).days.ago)
 end

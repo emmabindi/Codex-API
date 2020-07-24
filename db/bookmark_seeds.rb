@@ -1,4 +1,4 @@
-100.times do 
+150.times do 
   Bookmark.create(
     title: Faker::Lorem.sentence(word_count: 4),
     url: Faker::Internet.url,
@@ -24,7 +24,7 @@ Bookmark.create(title: 'Common Weakness Emuneration', url: 'http://cwe.mitre.org
 bookmarks = Bookmark.all 
 
 bookmarks.each do | bookmark |
-  bookmark.update_attribute(:created_at, (rand*10).days.ago)
+  bookmark.update_attribute(:created_at, (rand*28).days.ago)
 end
 
 puts 'Bookmarks added'

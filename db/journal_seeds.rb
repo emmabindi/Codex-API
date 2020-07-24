@@ -1,4 +1,4 @@
-100.times do 
+150.times do 
   Journal.create(
     title: Faker::Lorem.sentence(word_count: 6),
     body:  "{\"blocks\":[{\"key\":\"#{Faker::Alphanumeric.alphanumeric(number: 5)}\",\"text\":\"#{Faker::Lorem.paragraph(sentence_count: 15)}\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
@@ -26,5 +26,5 @@ Journal.create(title: 'Day 6', body: "{\"blocks\":[{\"key\":\"101ft\",\"text\":\
 puts '6 Journals added'
 
 journals.each do | journal |
-  journal.update_attribute(:created_at, (rand*10).days.ago)
+  journal.update_attribute(:created_at, (rand*28).days.ago)
 end
