@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/current-user', to: 'users#index'
 
   get '/user/:id/analytics', to: 'analytics#index'
+  get '/user/:id/analytics/activity', to: 'analytics#entries_by_date'
 
   delete '/user/:id', to: 'users#destroy'
 

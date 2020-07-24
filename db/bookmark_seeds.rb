@@ -1,4 +1,4 @@
-50.times do 
+100.times do 
   Bookmark.create(
     title: Faker::Lorem.sentence(word_count: 4),
     url: Faker::Internet.url,

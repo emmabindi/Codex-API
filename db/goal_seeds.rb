@@ -1,4 +1,4 @@
-50.times do 
+100.times do 
   Goal.create(
     title: Faker::Lorem.sentence(word_count: 6),
     body: Faker::Lorem.paragraph(sentence_count: 3),

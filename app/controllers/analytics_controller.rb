@@ -1,14 +1,35 @@
 class AnalyticsController < ApplicationController
   before_action :authenticate_user
 
+  def entries_by_date 
+    # http://localhost:3000/user/1/analytics/activity
+    bookmarks = current_user.bookmarks.group_by_day(:created_at, format: "%Y-%m-%d", range: 4.weeks.ago.midnight..Time.now).count
+    journals = current_user.journals.group_by_day(:created_at, format: "%Y-%m-%d", range: 4.weeks.ago.midnight..Time.now).count
+    goals = current_user.goals.group_by_day(:created_at, format: "%Y-%m-%d", range: 4.weeks.ago.midnight..Time.now).count
+
+
+    entries_array = []
+    entries_array.push(bookmarks)
+    entries_array.push(goals)
+    entries_array.push(journals)
+
+    total_entries_by_date = entries_array.inject{|memo, el| memo.merge( el ){|k, old_v, new_v| old_v + new_v}}
+
+    render json: {
+      total_entries_by_date: total_entries_by_date,
+      bookmarks: bookmarks,
+      goals: goals,
+      journals: journals,
+    }
+  end
+
+
   def index
+    # http://localhost:3000/user/1/analytics
     bookmarks_total = current_user.bookmarks.length
     journals_total = current_user.journals.length
     completed_goals = Goal.where(completed: true).length
     active_goals = Goal.where(completed: false).length
-
-    # method to count total of entries based on a category or language 
-    # array of dates for goals 
 
     # Categories:
     bookmarks_by_category = current_user.bookmarks.joins(:category).group(:name).count(:name)
@@ -47,6 +68,7 @@ class AnalyticsController < ApplicationController
     journals_daily_count = current_user.journals.where(:created_at => (Time.now.midnight - 1.day)..Time.now.midnight).count
     daily_activity = bookmark_daily_count + goals_daily_count + journals_daily_count
 
+
     # Activity by week 
 
     bookmark_week_count = current_user.bookmarks.where(:created_at => (Time.now.midnight - 7.days)..Time.now.midnight).count
@@ -54,17 +76,6 @@ class AnalyticsController < ApplicationController
     journals_week_count = current_user.journals.where(:created_at => (Time.now.midnight - 7.days)..Time.now.midnight).count
     weekly_activity = bookmark_week_count + goals_week_count + journals_week_count
 
-  #   MyModel.where("created_at < ?", 2.days.ago)
-
-  #   MyTable.where(created_at: Date.new..2.days.ago)
-
-  # SELECT * FROM clients WHERE (clients.created_at BETWEEN '2008-12-21 00:00:00' AND '2008-12-22 00:00:00')
-
-  # Client.where(
-  #     "created_at >= ? AND created_at <= ?", params[:start_date], params[:end_date])
-
-  #   Model.where("created_at IN (?)",
-  # (params[:start_date].to_date)..(params[:end_date].to_date))
 
     render json: { 
       bookmarks_total: bookmarks_total, 
@@ -119,3 +130,27 @@ end
 # # # => should give me book + goals 
 
 # total_entries_by_category = bookmarks_by_category.merge(goals_by_category, journals_by_category)
+
+    # User.first.goals.select("count(*) AS count, to_char(created_at, 'YYYY-MM-DD') AS day").group("day").order("day").where(created_at: (1.month.ago..Time.current))
+    # This is giving an array with created_at and the date.. 
+
+    # Order.all(:group => "date(created_at)", :order => "created_at")
+
+
+    # User.first.goals.group_by_day(:created_at, day_start: 23).count
+    # => {Sun, 12 Jul 2020=>2, Mon, 13 Jul 2020=>0, Tue, 14 Jul 2020=>0, Wed, 15 Jul 2020=>0, Thu, 16 Jul 2020=>2, Fri, 17 Jul 2020=>1, Sat, 18 Jul 2020=>1, Sun, 19 Jul 2020=>2, Mon, 20 Jul 2020=>2, Tue, 21 Jul 2020=>1, Wed, 22 Jul 2020=>0, Thu, 23 Jul 2020=>1}
+
+    # User.group_by_day(:created_at, range: 2.weeks.ago.midnight..Time.now).count
+
+    # User.group_by_week(:created_at, last: 8).count # last 8 weeks
+
+    # User.group_by_month(:created_at, format: "%b %Y").count
+    # # {
+    # #   "Jan 2020" => 10
+    # #   "Feb 2020" => 12
+    # # }
+    
+
+    # current_user.bookmarks.group_by_day(:created_at, range: 4.weeks.ago.midnight..Time.now).count
+
+    # User.first.bookmarks.group_by_day(:created_at, format: "%Y-%m-%d", range: 4.weeks.ago.midnight..Time.now).count

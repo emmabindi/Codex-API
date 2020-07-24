@@ -55,3 +55,5 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'rubocop-rails'
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+
+gem 'groupdate'

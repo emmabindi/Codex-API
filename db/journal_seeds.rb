@@ -1,4 +1,4 @@
-50.times do 
+100.times do 
   Journal.create(
     title: Faker::Lorem.sentence(word_count: 6),
     body:  "{\"blocks\":[{\"key\":\"#{Faker::Alphanumeric.alphanumeric(number: 5)}\",\"text\":\"#{Faker::Lorem.paragraph(sentence_count: 15)}\",\"type\":\"unstyled\",\"depth\":0,\"inlineStyleRanges\":[],\"entityRanges\":[],\"data\":{}}],\"entityMap\":{}}",
