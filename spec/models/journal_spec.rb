@@ -44,7 +44,7 @@ RSpec.describe Journal, type: :model do
     it do
       should validate_length_of(:body)
         .is_at_most(15_000)
-        .with_long_message('Please enter a shorter journal of less than 15000 characters')
+        .with_long_message('Please enter shorter journal of <15000 characters')
     end
   end
 
