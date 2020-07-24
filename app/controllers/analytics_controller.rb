@@ -3,9 +3,9 @@ class AnalyticsController < ApplicationController
 
   def entries_by_date
     # http://localhost:3000/analytics/activity
-    bookmarks = current_user.bookmarks.group_by_day(:created_at, format: '%Y-%m-%d', range: 4.weeks.ago.midnight..Time.now).count
-    journals = current_user.journals.group_by_day(:created_at, format: '%Y-%m-%d', range: 4.weeks.ago.midnight..Time.now).count
-    goals = current_user.goals.group_by_day(:created_at, format: '%Y-%m-%d', range: 4.weeks.ago.midnight..Time.now).count
+    bookmarks = current_user.bookmarks.group_by_day(:created_at, format: '%Y-%m-%d', range: 4.weeks.ago.midnight..Time.zone.now).count
+    journals = current_user.journals.group_by_day(:created_at, format: '%Y-%m-%d', range: 4.weeks.ago.midnight..Time.zone.now).count
+    goals = current_user.goals.group_by_day(:created_at, format: '%Y-%m-%d', range: 4.weeks.ago.midnight..Time.zone.now).count
 
     entries_array = []
     entries_array.push(bookmarks)
@@ -73,16 +73,16 @@ class AnalyticsController < ApplicationController
 
     # Activity by Day
 
-    bookmark_daily_count = current_user.bookmarks.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight).count
-    goals_daily_count = current_user.goals.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight).count
-    journals_daily_count = current_user.journals.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight).count
+    bookmark_daily_count = current_user.bookmarks.where(created_at: (Time.zone.now.midnight - 1.day)..Time.zone.now.midnight).count
+    goals_daily_count = current_user.goals.where(created_at: (Time.zone.now.midnight - 1.day)..Time.zone.now.midnight).count
+    journals_daily_count = current_user.journals.where(created_at: (Time.zone.now.midnight - 1.day)..Time.zone.now.midnight).count
     daily_activity = bookmark_daily_count + goals_daily_count + journals_daily_count
 
     # Activity by week
 
-    bookmark_week_count = current_user.bookmarks.where(created_at: (Time.now.midnight - 7.days)..Time.now.midnight).count
-    goals_week_count = current_user.goals.where(created_at: (Time.now.midnight - 7.days)..Time.now.midnight).count
-    journals_week_count = current_user.journals.where(created_at: (Time.now.midnight - 7.days)..Time.now.midnight).count
+    bookmark_week_count = current_user.bookmarks.where(created_at: (Time.zone.now.midnight - 7.days)..Time.zone.now.midnight).count
+    goals_week_count = current_user.goals.where(created_at: (Time.zone.now.midnight - 7.days)..Time.zone.now.midnight).count
+    journals_week_count = current_user.journals.where(created_at: (Time.zone.now.midnight - 7.days)..Time.zone.now.midnight).count
     weekly_activity = bookmark_week_count + goals_week_count + journals_week_count
 
     render json: {

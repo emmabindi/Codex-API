@@ -247,6 +247,7 @@ DEPENDENCIES
   rails-erd
   rspec-rails
   rubocop-rails
+  rufo
   shoulda-matchers
   spring
   spring-watcher-listen (~> 2.0.0)
