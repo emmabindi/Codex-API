@@ -9,6 +9,18 @@ RSpec.describe 'Bookmarks', type: :request do
     end
   end
 
+  describe 'GET #show' do
+    before(:example) do
+      @bookmark = create(:bookmark)
+      @bookmark_params = attributes_for(:bookmark)
+      get "/bookmarks/#{@bookmark.id}", headers: authenticated_header
+    end
+    
+    it 'responds successfully to retrieve a bookmark' do
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
   describe 'POST #create' do
     context 'when the bookmark is valid' do
       before(:example) do

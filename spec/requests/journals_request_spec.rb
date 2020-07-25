@@ -9,6 +9,18 @@ RSpec.describe 'Journals', type: :request do
     end
   end
 
+  describe 'GET #show' do
+    before(:example) do
+      @journal = create(:journal)
+      @journal_params = attributes_for(:journal)
+      get "/journals/#{@journal.id}", headers: authenticated_header
+    end
+    
+    it 'responds successfully to retrieve a journal' do
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
     describe 'POST #create' do
       context 'when the journal is valid' do
         before(:example) do

@@ -9,6 +9,18 @@ RSpec.describe "Goals", type: :request do
     end
   end
 
+  describe 'GET #show' do
+    before(:example) do
+      @goal = create(:goal)
+      @goal_params = attributes_for(:goal)
+      get "/goals/#{@goal.id}", headers: authenticated_header
+    end
+    
+    it 'responds successfully to retrieve a goal' do
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
   describe 'POST #create' do
     context 'when the goal is valid' do
       before(:example) do
