@@ -25,4 +25,20 @@ RSpec.describe 'Users', type: :request do
       end
     end
   end
+
+  describe 'DELETE #destroy' do
+    before(:example) do
+      user = create(:user)
+      delete "/user/#{user.id}", headers:
+      authenticated_header
+    end
+
+    it 'has a http no content response' do
+      expect(response).to have_http_status(:no_content)
+    end
+
+    it 'returns http deleted' do
+      expect(response).to have_http_status(:no_content)      
+    end
+  end
 end

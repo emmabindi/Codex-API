@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    current_user.destroy
+    current_user.delete
     render json: 'User Deleted', status: :no_content
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_22_052613) do
+ActiveRecord::Schema.define(version: 2020_07_25_044929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,11 +80,11 @@ ActiveRecord::Schema.define(version: 2020_07_22_052613) do
 
   add_foreign_key "bookmarks", "categories"
   add_foreign_key "bookmarks", "languages"
-  add_foreign_key "bookmarks", "users"
+  add_foreign_key "bookmarks", "users", on_delete: :cascade
   add_foreign_key "goals", "categories"
   add_foreign_key "goals", "languages"
-  add_foreign_key "goals", "users"
+  add_foreign_key "goals", "users", on_delete: :cascade
   add_foreign_key "journals", "categories"
   add_foreign_key "journals", "languages"
-  add_foreign_key "journals", "users"
+  add_foreign_key "journals", "users", on_delete: :cascade
 end
