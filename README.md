@@ -1,10 +1,11 @@
 # Codex
-### **Learning and productivity app for developers**
+```
+Learning and productivity app for developers
+````
+*Built using React on Rails and styled with SASS*  
+*Test driven development using RSPEC and Cypress* 
 
-Built using React on Rails and styled with SASS.  
-Test driven development using RSPEC and Cypress. 
-
-*Created by Michael Shepherd and Emma Bindi*
+Created by Michael Shepherd and Emma Bindi
 
 --- 
 
@@ -20,17 +21,21 @@ Test driven development using RSPEC and Cypress.
 [Wireframes](#wireframes)  
 [Testing](#testing)  
 [Project Management](#projectmgnt)
+[Planning Documentation & Diagrams](#planning)
 
 ---
 
 <a name="links"/></a>
 ## Links  
 
-#### Github API: https://github.com/emmabindi/Codex-API
-#### Github Client: https://github.com/mwshepherd/codex-client
+#### Deployed Sites:
+Netlify: https://codex-app.netlify.app/  
+Heroku: https://secure-lake-11760.herokuapp.com/  
 
-#### Heroku: https://secure-lake-11760.herokuapp.com/
-#### Netlify: https://codex-app.netlify.app/
+#### Github:
+API: https://github.com/emmabindi/Codex-API   
+Client: https://github.com/mwshepherd/codex-client
+
 
 ---
 
@@ -45,8 +50,8 @@ API
 
 Client
 - Clone the client repo
-- yarn install for all required dependencies
-- yarn start to start server 
+- Bundle install for all required dependencies
+- Yarn start to start server 
 
 ### Logins
 
@@ -57,10 +62,9 @@ Email  | Password |
 | z@gmail.com | `password`   
 | a@gmail.com | `password`   
 
---- 
-
 [⇧](#toc)  
 
+--- 
 
 <a name="purpose"/></a>
 ## Purpose
@@ -70,46 +74,44 @@ Email  | Password |
 - Provide search functionality to easily retrieve summary of learnings and bookmarked references. This information can be used for interviews and creating blog entries 
 - Output useful statistics on learning and journalling progress to foster sense of achievement and motivation.
 
+&nbsp;
+
 <a name="functionality"/></a>
 ## Functionality/Features   
 
-1. Journal: users can add private journal entries with option to include code snippets, tag with category. Filtering by date and search by keyword or category.    
-2. Bookmarks: users can store url's with a description and tag by category and search these y category or keyword
-3. Pomodoro Clock: timer to count time spent coding and track total for user analytics. 
-4. Statistics: user reporting to display totals of journal entries, pie graphs displaying category break downs, goal achieved date vs due date etc  
-5. Goals: tracking with due date and functionality to toggle complete and separate the view
+1. **User Authentication**: guests can sign up securely to create an account. Returning members can login to their account to view their private entries
+
+2. **Journals**: users can add private journal entries with option to include code snippets, tag with category and language. Filtering by date and search by keyword or category    
+
+3. **Bookmarks**: users can store url's with a description and tag by category and language 
+
+4. **Pomodoro Clock**: timer to count time spent coding and track total for user analytics 
+
+5. **Analytics**: user reporting to display totals and trends for of journal entries, pie graphs displaying category and language break downs, goal achieved date vs due date etc  
+
+6. **Goals**: tracking with due date and functionality to toggle complete and separate the between achieved and active goals
+
 
 &nbsp;
 
 <a name="techstack"/></a>
 
-| Tech Stack  |   |   
-|---|---|
-| JavaScript  | a high-level, just-in-time compiled language with dynamic typing. Can be used on both client and server side |  
-| React |  an open-source JavaScript library for creating interactive user interfaces |  
-| Ruby on Rails |  a web application framework used to create a database backed application based on the Model-View-Controller framework  | 
-| PostgreSQL | a relational database management system with SQL compliance   |  
-| HTML5 |  is a markup language used to present and structure content for the web |  
-| CSS + SASS   |  cascading Stylesheets which determine how HTML elements will be displayed on screen, SASS is a CSS precompiler which adds additional features for implementing CSS |  
-| Git + Github  | distributed version-control system for tracking code throughout a project, hosted online through Github to allow for team collaboration  |  
-| Heroku | cloud based deployment platform  |  
-| Netlify | website deployment with continuous integration  | 
-
-API Web Server Puma 
+| Tech Stack  |   | |
+|---|---|---|
+| Languages  | JavaScript (ES6) <br/> HTML5 <br/>  CSS <br/> SASS <br/>  Ruby |  
+| Frameworks | React <br/> Ruby on Rails  |  
+| Database | PostgreSQL  | 
+| Testing |  RSPEC <br/> Shouldamatchers <br/> SimpleCov <br/>  FactoryBot <br/>  Cypress  |  
+| Deployment | Heroku <br/>  Netlify |  
+| Libraries | Draftjs <br/>  Chartjs <br/> Moment <br/> ChartKick  | 
+| Gems | Knock <br/>  will_paginate <br/> Ruboco <br/>  Faker <br/> groupdate <br/> CORS | 
+| Source Control | Git <br/> Github   |  
+---
 
 
-Packages 
-
-Libraries List 
-
-Gems List 
-
-Testing 
+[⇧](#toc)  
 
 
-Source Control 
-
---- 
 <a name="targetaudience"/></a>
 ## Target Audience
 
@@ -183,7 +185,6 @@ Guest: new visitor to Codex who is interested in finding out the functionality a
 
 - As a guest I want to be able to sign up securely in order to be able to record my journal entries and data 
 
-
 &nbsp;
 
 --- 
@@ -200,12 +201,14 @@ For example, user stories removed:
 
 Additional user stories were identified throughout the planning process and subsequently added, such as 'as a user I want to filter my journal entries by date'.  
 
+[⇧](#toc)  
+
 --- 
 
 <a name="wireframes"/></a>
 ## Wireframes
 
-We created wireframes using Figma and have linked the click actions with navigations to subsequent pages as displayed below. 
+Wireframes were created using Figma and have linked the click actions with navigations to subsequent pages as displayed below. 
 
 ![Wireframe - Page Links](docs/Wireframes/PageLinks.png)
 
@@ -235,59 +238,90 @@ We created wireframes using Figma and have linked the click actions with navigat
 
 &nbsp;
 
+[⇧](#toc)  
+
 --- 
 
 <a name="testing"/></a>
 ## Testing 
 
+[⇧](#toc)  
 
 --- 
 
 <a name="projectmgnt"/></a>
 ## Project Management
 
-**Weekly Timeline Plan**  
+**Project Development Timeline**  
 
-Monday:   
-Idea decision, research tools and external APIs, decide on functionality and then MVP vs sprinkles, chose project name, create personas and user stories, commence wireframes - layout ideas, color schemes and fonts, architecture diagram 
+| Codex Sprint 1.0  |  | |
+|---|---|---|
+| Monday 13/07  | - Idea & Name Decision <br/> - Elevator Pitch <br/> - Research tools/libraries <br/> - Decide MVP features & sprinkles list <br/> - Create personas & user stories <br/>  - Trello board setup <br/> - Architecture Diagram |  
+| Tuesday 14/07 | - Dataflow diagram <br/> - Develop wireframes web & mobile |  
+| Wednesday 15/07 | - Finalise wireframes & link interactions <br/>  - ERD  |  
+| Thursday 16/07 | - TDD of API <br/> - Setup React App |  
+| Friday 17/07 | - Heroku deployment <br/> - Test user authentication and API routes & requests <br/>  - Submit planning documentation |  
+| Monday 20/07  | - Present planning deliverables <br/> - Custom CSS created for nav bar|  
+| Tuesday 21/07 |  |  
+| Wednesday 22/07 |  |  
+| Thursday 23/07 |  |  
+| Friday 24/07 |  |  
+| Monday 27/07  |  |  
+| Tuesday 28/07 |  |  
+| Wednesday 29/07 |  |  
+| Thursday 30/07 |  |  
 
-Tuesday:   
-Data flow diagram, continue working on wireframes for mobile 
-devices also   
-
-Wednesday:   
-Finalise features and wireframes, research into external libraries  
-
-Thursday:   
-TDD for models and controllers, Setup React app 
-
-Friday:   
-Submit documentation, deploy React to Netlify and test API requests and authentication
 
 
 &nbsp;
 
-**Daily Summaries:**  
 
-Monday:  finalised app idea & name, presented elevator pitch, researched API's and tools, brainstorming features, commenced wireframes using Figma and testing font pairings, color scheme, populating Trello board, completed architecture diagram with LucidChart   
-
-Tuesday: Custom CSS developed for Desktop side nav bar, ERD created, data flow diagram created
-
-Wednesday: Feedback received from Harrison re Architecture diagram and ERD, researched and implemented polymorphic associations for categories which are used on 3 different models, setup repositories and commenced TDD of Rails models, finalising wireframe designs for all pages
-
-Thursday: Setting up polymorphic joining table for categories and redid ERD, TDD for models with RSPEC, adding validations and associations, wrote RSPEC tests for controller requests, commenced set up of React app, deployed Rails to Heroku
-
-Friday: finalised wireframe page interactions, installed draftjs library, submitted documentation
+[⇧](#toc)  
 
 &nbsp;
 
 **Screenshots:**  
 
-![Trello Day 1](docs/TrelloBoard/Trello-Day1.png)
-![Trello Day 1a](docs/TrelloBoard/Trello-Day1-a.png)
-![Trello Day 2](docs/TrelloBoard/Trello-Day2.png)
-![Trello Day 3](docs/TrelloBoard/Trello-Day3.png)
-![Trello Day 4](docs/TrelloBoard/Trello-Day4.png)
-![Trello Day 5](docs/TrelloBoard/Trello-Day5.png)
+![Trello Day 1](docs/projectmgnt/TrelloBoard/Trello-Day1.png)
+![Trello Day 1a](docs/projectmgnt/TrelloBoard/Trello-Day1-a.png)
+![Trello Day 2](docs/projectmgnt/TrelloBoard/Trello-Day2.png)
+![Trello Day 3](docs/projectmgnt/TrelloBoard/Trello-Day3.png)
+![Trello Day 4](docs/projectmgnt/TrelloBoard/Trello-Day4.png)
+![Trello Day 5](docs/projectmgnt/TrelloBoard/Trello-Day5.png)
+
+
+```js
+
+complete this 
+
+
+
+
+```
+
+[⇧](#toc)  
 
 ---
+
+<a name="planning"/></a>
+## Planning Documentatino & Diagrams
+
+### Dataflow Diagram
+
+![Data Flow Diagram](docs/planning/Codex-DataFlow.jpg)
+
+&nbsp;
+--- 
+
+### Application Architecture Diagram	
+![Application Architecture Diagram](docs/planning/Codex-Application-Architecture.png)
+
+--- 
+
+### Entity Relationship Diagram
+![Entity Relationship Diagram](docs/planning/Codex-ERD-3.0.png)
+
+[⇧](#toc) 
+
+--- 
+END
