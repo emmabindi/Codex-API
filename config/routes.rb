@@ -19,5 +19,7 @@ Rails.application.routes.draw do
   resources :bookmarks
   resources :goals
 
+  get '/goals-complete', to: 'goals#completed_goals'
+
   root to: 'landing#index'
 end

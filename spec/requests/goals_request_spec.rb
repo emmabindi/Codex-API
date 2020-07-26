@@ -2,12 +2,20 @@ require 'rails_helper'
 
 RSpec.describe "Goals", type: :request do
   describe 'GET #index' do
-    it 'responds successfully to retrieve a users goals' do
+    it 'responds successfully to retrieve a users active goals' do
       get '/goals', headers: authenticated_header
     
       expect(response).to have_http_status(:success)
     end
   end
+
+  describe 'GET #completed_goals' do
+  it 'responds successfully to retrieve a users completed goals' do
+    get '/goals-complete', headers: authenticated_header
+  
+    expect(response).to have_http_status(:success)
+  end
+end
 
   describe 'GET #show' do
     before(:example) do
