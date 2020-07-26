@@ -1,25 +1,24 @@
 # Codex
+### **Learning and productivity app for developers**
 
-## *Learning and productivity app for developers* 
+Built using React on Rails and styled with SASS.  
+Test driven development using RSPEC and Cypress. 
 
-Built with React on Rails and styled with SASS. 
-Test driven development with RSPEC and Cypress. 
-
-Created by Michael Shepherd and Emma Bindi.
+*Created by Michael Shepherd and Emma Bindi*
 
 --- 
 
-## Table of Contents: 
+## <a name="toc"/>Table of Contents:</a>
 
 [Links](#links)  
-[Setup Instructions & Logins](#setup) 
-[Purpose](#purpose) 
-[Functionality & Features](#functionality) 
-[Tech Stack](#techstack) 
-[Target Audience](#targetaudience)
-[User Stories & Personas](#userstories)
-[Wireframes](#wireframes)
-[Testing](#testing)
+[Setup Instructions & Logins](#setup)   
+[Purpose](#purpose)   
+[Functionality & Features](#functionality)   
+[Tech Stack](#techstack)   
+[Target Audience](#targetaudience)  
+[User Stories & Personas](#userstories)  
+[Wireframes](#wireframes)  
+[Testing](#testing)  
 [Project Management](#projectmgnt)
 
 ---
@@ -27,11 +26,11 @@ Created by Michael Shepherd and Emma Bindi.
 <a name="links"/></a>
 ## Links  
 
-### Github API: https://github.com/emmabindi/Codex-API
+#### Github API: https://github.com/emmabindi/Codex-API
 #### Github Client: https://github.com/mwshepherd/codex-client
 
-### Heroku: https://secure-lake-11760.herokuapp.com/
-### Netlify: https://codex-app.netlify.app/
+#### Heroku: https://secure-lake-11760.herokuapp.com/
+#### Netlify: https://codex-app.netlify.app/
 
 ---
 
@@ -59,6 +58,9 @@ Email  | Password |
 | a@gmail.com | `password`   
 
 --- 
+
+[⇧](#toc)  
+
 
 <a name="purpose"/></a>
 ## Purpose
@@ -91,7 +93,21 @@ Email  | Password |
 | CSS + SASS   |  cascading Stylesheets which determine how HTML elements will be displayed on screen, SASS is a CSS precompiler which adds additional features for implementing CSS |  
 | Git + Github  | distributed version-control system for tracking code throughout a project, hosted online through Github to allow for team collaboration  |  
 | Heroku | cloud based deployment platform  |  
-| Netlify | website deployment with continuous integration  |  
+| Netlify | website deployment with continuous integration  | 
+
+API Web Server Puma 
+
+
+Packages 
+
+Libraries List 
+
+Gems List 
+
+Testing 
+
+
+Source Control 
 
 --- 
 <a name="targetaudience"/></a>
