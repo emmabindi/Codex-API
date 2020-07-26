@@ -252,24 +252,31 @@ Wireframes were created using Figma and have linked the click actions with navig
 <a name="projectmgnt"/></a>
 ## Project Management
 
-**Project Development Timeline**  
+**Project Development Timeline & Delegation**  
 
-| Codex Sprint 1.0  |  | |
-|---|---|---|
-| Monday 13/07  | - Idea & Name Decision <br/> - Elevator Pitch <br/> - Research tools/libraries <br/> - Decide MVP features & sprinkles list <br/> - Create personas & user stories <br/>  - Trello board setup <br/> - Architecture Diagram |  
-| Tuesday 14/07 | - Dataflow diagram <br/> - Develop wireframes web & mobile |  
-| Wednesday 15/07 | - Finalise wireframes & link interactions <br/>  - ERD  |  
-| Thursday 16/07 | - TDD of API <br/> - Setup React App |  
-| Friday 17/07 | - Heroku deployment <br/> - Test user authentication and API routes & requests <br/>  - Submit planning documentation |  
-| Monday 20/07  | - Present planning deliverables <br/> - Custom CSS created for nav bar|  
-| Tuesday 21/07 |  |  
-| Wednesday 22/07 |  |  
-| Thursday 23/07 |  |  
-| Friday 24/07 |  |  
-| Monday 27/07  |  |  
-| Tuesday 28/07 |  |  
-| Wednesday 29/07 |  |  
-| Thursday 30/07 |  |  
+### 
+
+▪ Tasks completed together (pair programming)  
+⚙︎ Tasks driven by Emma  
+⌔ Tasks driven by Michael   
+
+|  Codex Sprint 1.0 | |
+|---|---|---|---|
+| Mon 13/07  | ▪ Idea & Name Decision <br/> ▪ Elevator Pitch <br/> ▪ Research tools/libraries <br/> ▪ Decide MVP features & sprinkles list <br/> ▪ Create personas & user stories <br/>  ⚙︎ Trello board setup <br/> ⚙︎ Architecture Diagram ||
+| Tues 14/07 | ⌔ Dataflow diagram <br/> ⌔ Develop wireframes web & mobile |  
+| Wed 15/07 | ▪ Finalise wireframes & link interactions <br/>  ▪ ERD  |  
+| Thur 16/07 | ⚙︎ TDD of API <br/> ⌔ Setup React App |  |
+| Fri 17/07 | ⚙︎ Heroku deployment <br/> ⚙︎ Test user authentication and API routes & requests <br/>  ▪ Submit planning documentation |  
+| Mon 20/07  | ▪ Present planning deliverables <br/> ⌔ Custom CSS created for nav bar <br/> ⚙︎ Seed file content <br/> ⚙︎ Setup options for category & language lists <br/> ⌔ Front end journals component |  
+| Tues 21/07 | ▪ Front end bookmarks component <br/>  ⌔ App refactor for Dynamic Components <br/>   |  
+| Wed 22/07 | ⚙︎ Front end goals component <br/>  ⌔ Draftjs for new journal entries |  
+| Thur 23/07 | ⌔ Pagination <br/>  ⌔ Sorting <br/>  ⚙︎ Setup analytics data in back end |  
+| Fri 24/07 | ⌔ Analytics in front end with Chartjs & Chartkick <br/>  ▪ Edit journal functionality <br/>  ⌔ Netlify deployment  |  
+| Weekend  | ⚙︎ Rubocop offences <br/>  ⚙︎ Github workflow actions setup  <br/>  ⚙︎ Code coverage report & further RSPEC tests developed  <br/> ⌔ Styling  <br/>  ⚙︎ Cypress testing user login, adding new entries | 
+| Mon 27/07  |  |  
+| Tues 28/07 |  |  
+| Wed 29/07 |  |  
+| Thur 30/07 |  |  
 
 
 
@@ -282,12 +289,29 @@ Wireframes were created using Figma and have linked the click actions with navig
 
 **Screenshots:**  
 
-![Trello Day 1](docs/projectmgnt/TrelloBoard/Trello-Day1.png)
+Day 1 
 ![Trello Day 1a](docs/projectmgnt/TrelloBoard/Trello-Day1-a.png)
+Day 1: MVP vs Sprinkles
+![Trello Day 1](docs/projectmgnt/TrelloBoard/Trello-Day1.png)
+Day 2: Design tasks completed
 ![Trello Day 2](docs/projectmgnt/TrelloBoard/Trello-Day2.png)
+Day 3: Progress is being made with design and planning tasks 
 ![Trello Day 3](docs/projectmgnt/TrelloBoard/Trello-Day3.png)
+Day 4: 
 ![Trello Day 4](docs/projectmgnt/TrelloBoard/Trello-Day4.png)
+Day 5: Close up Wireframes Task Management
 ![Trello Day 5](docs/projectmgnt/TrelloBoard/Trello-Day5.png)
+
+Day 6: Back End TDD, Github Repos Created, React setup
+![Trello Day 6](docs/projectmgnt/TrelloBoard/Trello-Day6.png)
+Day 7: Progress
+![Trello Day 7](docs/projectmgnt/TrelloBoard/Trello-Day7.png)
+Day 7: React Components Task List
+![Trello Day 7a](docs/projectmgnt/TrelloBoard/Trello-Day7a.png)
+Day 9: Dynamic Components, React Routes
+![Trello Day 9](docs/projectmgnt/TrelloBoard/Trello-Day9.png)  
+Day 10: Data Analytics and Styling
+![Trello Day 10a](docs/projectmgnt/TrelloBoard/Trello-Day10a.png)
 
 
 ```js
@@ -318,7 +342,7 @@ complete this
 
 --- 
 
-### Entity Relationship Diagram
+### Entity Relationship Diagram v3
 ![Entity Relationship Diagram](docs/planning/Codex-ERD-3.0.png)
 
 [⇧](#toc) 
