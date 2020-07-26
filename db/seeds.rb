@@ -1,9 +1,9 @@
 puts 'Seeding DB..'
 
 User.create(username: 'Henry', email: 'h@gmail.com', password: 'password')
-User.create(username: 'Carmen', email: 'h@gmail.com', password: 'password')
-User.create(username: 'Zac', email: 'h@gmail.com', password: 'password')
-User.create(username: 'Ariana', email: 'h@gmail.com', password: 'password')
+User.create(username: 'Carmen', email: 'c@gmail.com', password: 'password')
+User.create(username: 'Zac', email: 'z@gmail.com', password: 'password')
+User.create(username: 'Ariana', email: 'a@gmail.com', password: 'password')
 
 puts '4 Users Added'
 
