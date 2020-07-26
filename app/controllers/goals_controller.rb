@@ -3,27 +3,29 @@ class GoalsController < ApplicationController
   before_action :set_goal, only: %i[show update destroy]
 
   def index
-  # Returns active goals only    
-    goals = current_user.goals.where(completed:false)
-    .order(id: 'desc')
-    .paginate(page: params[:page])
+    # Returns active goals only
+    goals = current_user
+            .goals.where(completed: false)
+            .order(id: 'desc')
+            .paginate(page: params[:page])
     render json: {
       goals: goals.as_json(include: %i[category language]),
-      total_entries: current_user.goals.where(completed:false).length,
+      total_entries: current_user.goals.where(completed: false).length,
       current_user: current_user.username
     }
   end
 
   def completed_goals
-      # Returns achieved goals only    
-      goals = current_user.goals.where(completed:true)
-      .order(id: 'desc')
-      .paginate(page: params[:page])
-      render json: {
-        goals: goals.as_json(include: %i[category language]),
-        total_entries: current_user.goals.where(completed:true).length,
-        current_user: current_user.username
-      }
+    # Returns achieved goals only
+    goals = current_user
+            .goals.where(completed: true)
+            .order(id: 'desc')
+            .paginate(page: params[:page])
+    render json: {
+      goals: goals.as_json(include: %i[category language]),
+      total_entries: current_user.goals.where(completed: true).length,
+      current_user: current_user.username
+    }
   end
 
   def show
