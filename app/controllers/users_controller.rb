@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     if user.save
-      render json: 'user created', status: :ok
+      render json: 'User Created', status: :ok
     else 
       render json: user.errors.full_messages
     end
