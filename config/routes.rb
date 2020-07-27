@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  get '/timer', to: 'timer#index'
+  post '/timer', to: 'timer#update'
+
   get 'language/index'
   get 'categories/index'
+  
   post '/login', to: 'user_token#create'
   get '/status', to: 'status#index'
   get '/status/user', to: 'status#user'
@@ -8,7 +12,6 @@ Rails.application.routes.draw do
   get '/current-user', to: 'users#index'
   get '/dashboard', to: 'users#dashboard'
 
-  # get '/user/:id/analytics', to: 'analytics#index'
   get '/analytics/counts', to: 'analytics#counts'
   get '/analytics/activity', to: 'analytics#entries_by_date'
   get '/analytics/categories', to: 'analytics#categories'
