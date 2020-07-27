@@ -24,8 +24,13 @@ RSpec.describe 'Journals', type: :request do
     describe 'POST #create' do
       context 'when the journal is valid' do
         before(:example) do
-          @journal = create(:journal)
+          @user = create(:user)
+          @category = create(:category)
+          @language = create(:language)
           @journal_params = attributes_for(:journal)
+          @journal_params[:category_id] = @category.id
+          @journal_params[:language_id] = @language.id
+          @journal_params[:user_id] = @user.id
           post '/journals', params: { journal: @journal_params }, headers: authenticated_header
         end
 
@@ -33,11 +38,27 @@ RSpec.describe 'Journals', type: :request do
           expect(response).to have_http_status(:created)
         end
 
-        it 'saves the bookmark to the database' do
+        it 'saves the journal to the database' do
           expect(Journal.last.title).to eq(@journal_params[:title])
         end
       end
+
+      context 'when the journal is invalid' do
+        before(:example) do
+          @journal_params = attributes_for(:journal, :invalid)
+          post '/journals', params: { journal: @journal_params }, headers: authenticated_header
+          @json_response = JSON.parse(response.body)
+      end
+  
+      it 'returns status unprocessable entity' do
+        expect(response).to have_http_status(:unprocessable_entity)
+      end
+  
+      it 'errors contains the correct message' do
+        expect(@json_response['errors'][0]).to eq("Title can't be blank")
+      end
     end
+  end
 
   describe 'PUT #update' do
     context 'when the params are valid' do

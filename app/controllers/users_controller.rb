@@ -1,21 +1,23 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user, only: [:update]
 
   def index
-    if params[:type] == 'json'
-      render json: {
-        user: {
-          id: current_user.id,
-          username: current_user.username,
-          email: current_user.email
-        }
+    render json: {
+      user: {
+        id: current_user.id,
+        username: current_user.username,
+        email: current_user.email
       }
-    end
+    }
   end
 
   def create
-    User.create(user_params)
-    render json: 'user created', status: :created
+    user = User.create(user_params)
+    if user.save
+      render json: 'user created', status: :ok
+    else 
+      render json: user.errors.full_messages
+    end
   end
 
   def destroy
@@ -26,6 +28,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :username)
   end
 end

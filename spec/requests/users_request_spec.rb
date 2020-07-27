@@ -16,8 +16,8 @@ RSpec.describe 'Users', type: :request do
         post '/sign-up', params: { user: @user_params }, headers: authenticated_header
       end
 
-      it 'returns http created' do
-        expect(response).to have_http_status(:created)
+      it 'returns http ok' do
+        expect(response).to have_http_status(:ok)
       end
 
       it 'saves the user to the database' do
