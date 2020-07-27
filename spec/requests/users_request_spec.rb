@@ -9,6 +9,14 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
+  describe 'GET #dashboard' do
+    it 'responds successfully to retrieve a users dashboard data' do
+      get '/dashboard', headers: authenticated_header
+
+      expect(response).to have_http_status(:success)
+    end
+  end
+
   describe 'POST #create' do
     context 'when the user is valid' do
       before(:example) do
