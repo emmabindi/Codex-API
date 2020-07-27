@@ -15,4 +15,11 @@ require_relative "goal_seeds"
 
 require_relative "journal_seeds"
 
+Timer.create(time_length:0, user_id:1)
+Timer.create(time_length:0, user_id:2)
+Timer.create(time_length:0, user_id:3)
+Timer.create(time_length:0, user_id:4)
+
+puts "Timers created for users"
+
 puts 'Seed Complete 🎉'
