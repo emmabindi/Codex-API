@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/status/user', to: 'status#user'
   post '/sign-up', to: 'users#create'
   get '/current-user', to: 'users#index'
+  get '/dashboard', to: 'users#dashboard'
 
   # get '/user/:id/analytics', to: 'analytics#index'
   get '/analytics/counts', to: 'analytics#counts'
