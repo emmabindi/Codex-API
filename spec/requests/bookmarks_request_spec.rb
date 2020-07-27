@@ -24,8 +24,13 @@ RSpec.describe 'Bookmarks', type: :request do
   describe 'POST #create' do
     context 'when the bookmark is valid' do
       before(:example) do
-        @bookmark = create(:bookmark)
+        @user = create(:user)
+        @category = create(:category)
+        @language = create(:language)
         @bookmark_params = attributes_for(:bookmark)
+        @bookmark_params[:category_id] = @category.id
+        @bookmark_params[:language_id] = @language.id
+        @bookmark_params[:user_id] = @user.id
         post '/bookmarks', params: { bookmark: @bookmark_params }, headers: authenticated_header
       end
 
@@ -37,7 +42,23 @@ RSpec.describe 'Bookmarks', type: :request do
         expect(Bookmark.last.title).to eq(@bookmark_params[:title])
       end
     end
+
+    context 'when the bookmark is invalid' do
+      before(:example) do
+        @bookmark_params = attributes_for(:bookmark, :invalid)
+        post '/bookmarks', params: { bookmark: @bookmark_params }, headers: authenticated_header
+        @json_response = JSON.parse(response.body)
+    end
+
+    it 'returns status unprocessable entity' do
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+
+    it 'errors contains the correct message' do
+      expect(@json_response['errors'][0]).to eq("Title can't be blank")
+    end
   end
+end
 
   describe 'PUT #update' do
     context 'when the params are valid' do

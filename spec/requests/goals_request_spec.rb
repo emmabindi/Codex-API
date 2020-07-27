@@ -32,8 +32,13 @@ end
   describe 'POST #create' do
     context 'when the goal is valid' do
       before(:example) do
-        @goal = create(:goal)
+        @user = create(:user)
+        @category = create(:category)
+        @language = create(:language)
         @goal_params = attributes_for(:goal)
+        @goal_params[:category_id] = @category.id
+        @goal_params[:language_id] = @language.id
+        @goal_params[:user_id] = @user.id
         post '/goals', params: { goal: @goal_params }, headers: authenticated_header
       end
 
@@ -43,6 +48,22 @@ end
 
       it 'saves the goal to the database' do
         expect(Goal.last.title).to eq(@goal_params[:title])
+    end
+  end
+
+    context 'when the goal is invalid' do
+      before(:example) do
+        @goal_params = attributes_for(:goal, :invalid)
+        post '/goals', params: { goal: @goal_params }, headers: authenticated_header
+        @json_response = JSON.parse(response.body)
+    end
+
+    it 'returns status unprocessable entity' do
+      expect(response).to have_http_status(:unprocessable_entity)
+    end
+
+    it 'errors contains the correct message' do
+      expect(@json_response['errors'][0]).to eq("Title can't be blank")
     end
   end
 end
