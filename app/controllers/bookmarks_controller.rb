@@ -18,7 +18,7 @@ class BookmarksController < ApplicationController
   def create
     bookmark = current_user.bookmarks.create(bookmark_params)
 
-    if bookmark.save 
+    if bookmark.save
       render json: bookmark, status: :created
     else
       render json: { errors: bookmark.errors.full_messages }, status: :unprocessable_entity
