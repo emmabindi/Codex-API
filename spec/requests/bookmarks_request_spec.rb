@@ -31,7 +31,6 @@ RSpec.describe 'Bookmarks', type: :request do
         @bookmark_params[:category_id] = @category.id
         @bookmark_params[:language_id] = @language.id
         @bookmark_params[:user_id] = @user.id
-        # puts @bookmark_params
         post '/bookmarks', params: { bookmark: @bookmark_params }, headers: authenticated_header
       end
 

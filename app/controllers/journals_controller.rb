@@ -17,7 +17,11 @@ class JournalsController < ApplicationController
 
   def create
     journal = current_user.journals.create(journal_params)
-    render json: journal, status: :created
+    if journal.save
+      render json: journal, status: :created
+    else
+      render json: { errors: journal.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def update

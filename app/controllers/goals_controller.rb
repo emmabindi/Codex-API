@@ -34,7 +34,11 @@ class GoalsController < ApplicationController
 
   def create
     goal = current_user.goals.create(goal_params)
-    render json: goal, status: :created
+    if goal.save
+      render json: goal, status: :created
+    else 
+      render json: { errors: goal.errors.full_messages }, status: :unprocessable_entity  
+    end
   end
 
   def update

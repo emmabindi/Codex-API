@@ -6,5 +6,9 @@ FactoryBot.define do
     association :user
     association :category
     association :language
+
+    trait :invalid do
+      title {nil}
+    end
   end
 end
