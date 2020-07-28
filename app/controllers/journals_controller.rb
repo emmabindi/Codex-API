@@ -3,7 +3,7 @@ class JournalsController < ApplicationController
   before_action :set_journal, only: %i[show update destroy]
 
   def index
-    journals = current_user.journals.order(id: 'desc').paginate(page: params[:page])
+    journals = current_user.journals.order(created_at: 'desc').paginate(page: params[:page])
     render json: {
       journals: journals.as_json(include: %i[category language]),
       total_entries: current_user.journals.length,

@@ -6,7 +6,7 @@ class GoalsController < ApplicationController
     # Returns active goals only
     goals = current_user
             .goals.where(completed: false)
-            .order(id: 'desc')
+            .order(created_at: 'desc')
             .paginate(page: params[:page])
     render json: {
       goals: goals.as_json(include: %i[category language]),

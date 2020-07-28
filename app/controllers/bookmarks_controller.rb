@@ -3,7 +3,7 @@ class BookmarksController < ApplicationController
   before_action :set_bookmark, only: %i[show update destroy]
 
   def index
-    bookmarks = current_user.bookmarks.order(id: 'desc').paginate(page: params[:page])
+    bookmarks = current_user.bookmarks.order(created_at: 'desc').paginate(page: params[:page])
     render json: {
       bookmarks: bookmarks.as_json(include: %i[category language]),
       total_entries: current_user.bookmarks.length,

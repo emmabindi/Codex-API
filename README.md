@@ -23,6 +23,14 @@ Created by Michael Shepherd and Emma Bindi
 [Project Management](#projectmgnt)
 [Planning Documentation & Diagrams](#planning)
 
+```js
+
+insert screenshots of finished product
+
+
+
+```
+
 ---
 
 <a name="links"/></a>
@@ -42,16 +50,26 @@ Client: https://github.com/mwshepherd/codex-client
 <a name="setup"/></a>
 ## Setup Instructions (Local)
 
-API
+**API**
 - Clone the api repo
 - Bundle install to install all required dependencies
 - Rake db:setup to create local database migrate and seed
-- Rails s to run the rails server
+- Rails s to run the rails server on Port 3000 
 
-Client
+**Client**
 - Clone the client repo
-- Bundle install for all required dependencies
-- Yarn start to start server 
+- Yarn install for all required dependencies
+- Create .env.development file at root of folder, insert the below into this file:
+``` js
+PORT=8080
+REACT_APP_BACKEND_URL=http://localhost:3000
+```
+(Or for production environment, create file .env and insert): 
+``` js
+REACT_APP_BACKEND_URL=https://codex-app-api.herokuapp.com/
+```
+- Yarn start to start server on Port 8080
+
 
 ### Logins
 
@@ -245,6 +263,17 @@ Wireframes were created using Figma and have linked the click actions with navig
 <a name="testing"/></a>
 ## Testing 
 
+
+``` 
+
+
+
+NEED TO INSERT CHAT 
+AND SPREADSHEETS 
+
+
+
+````
 [⇧](#toc)  
 
 --- 
