@@ -96,7 +96,7 @@ example_id                                         | status | run_time        |
 ./spec/requests/language_request_spec.rb[1:1:1]    | passed | 0.04091 seconds |
 ./spec/requests/status_request_spec.rb[1:1:1]      | passed | 0.02251 seconds |
 ./spec/requests/status_request_spec.rb[1:2:1]      | passed | 0.08354 seconds |
-./spec/requests/timer_request_spec.rb[1:1:1]       | failed | 0.0388 seconds  |
+./spec/requests/timer_request_spec.rb[1:1:1]       | passed | 0.60411 seconds |
 ./spec/requests/users_request_spec.rb[1:1:1]       | passed | 0.04053 seconds |
 ./spec/requests/users_request_spec.rb[1:2:1]       | passed | 0.25121 seconds |
 ./spec/requests/users_request_spec.rb[1:3:1:1]     | passed | 0.06628 seconds |
