@@ -119,7 +119,7 @@ Email  | Password |
 | Languages  | JavaScript (ES6) <br/> HTML5 <br/>  CSS <br/> SASS <br/>  Ruby |  
 | Frameworks | React <br/> Ruby on Rails  |  
 | Database | PostgreSQL  | 
-| Testing |  RSPEC <br/> Shouldamatchers <br/> SimpleCov <br/>  FactoryBot <br/>  Cypress  |  
+| Testing |  RSPEC <br/> Shouldamatchers <br/> SimpleCov <br/>  FactoryBot <br/>  Cypress <br/> Mochawesome |  
 | Deployment | Heroku <br/>  Netlify |  
 | Libraries | Draftjs <br/>  Chartjs <br/> Moment <br/> ChartKick  | 
 | Gems | Knock <br/>  will_paginate <br/> Rubocop <br/>  Faker <br/> groupdate <br/> CORS | 
@@ -284,6 +284,18 @@ insert postman collection
 <a name="projectmgnt"/></a>
 ## Project Management
 
+Methodology: 
+
+We kicked off the project idea brainstorming together and worked the first few days of the development lifecycle together, sharing ideas and making decisions as a team. 
+
+Once we had settled on a direction, determined MVP and had a rough outline of the timeframe in which we wanted to achieve we then discussed the strengths of each person and determined that although completing the project together as a team, we would put Michael in the drivers seat for the front end development aspect and Emma in the drivers seat for the back end development. 
+
+Every single day of the development sprint we worked online together in a Discord server, constantly asking each other questions, sharing progress and helping each other out. Every day, the task goals for that day were assessed first thing in the morning with those tasks allocated to Emma or Michael and moved to Doing in the Trello board. The Trello board was revisited every day at lunch again to check in with progress. 
+
+Despite each taking a drivers seat for API/client, both team members contributed to the code base of the other repository respectively. And all challenging or watershed aspects of the app development were tackled by pair programming. 
+
+Below is an overview of the tasks completed each day which has been summarised from our shared daily journal and legend displays the delegation of tasks. 
+
 **Project Development Timeline & Delegation**  
 
 ### 
@@ -306,11 +318,15 @@ insert postman collection
 | Fri 24/07 | ⌔ Analytics in front end with Chartjs & Chartkick <br/>  ▪ Edit journal functionality <br/>  ⌔ Netlify deployment  |  
 | Weekend  | ⚙︎ Rubocop offences <br/>  ⚙︎ Github workflow actions setup  <br/>  ⚙︎ Code coverage report & further RSPEC tests developed  <br/> ⌔ Styling  <br/>  ⚙︎ Cypress testing user login, adding new entries | 
 | Mon 27/07  | ⚙︎ Error handling for user and entry creation <br/> ⚙︎ Manual testing <br/>  ⌔ Styling goals, dashboard <br/> ⌔ Setup random quote API to dashboard <br/> ⚙︎ Add sign up functionality  |  
-| Tues 28/07 |  |  
+| Tues 28/07 | ⌔ Styling dashboard, analytics <br/>  ⌔ Adding loading spinners to all pages <br/> ⚙︎ Add error handling for new goals/bookmarks ⚙︎ Mochawesome and cypress testing <br/>  ⌔ Error handling for new journals <br/>  ⌔ Timer functionality |  
 | Wed 29/07 |  |  
 | Thur 30/07 |  |  
 
 ``` js
+
+
+
+
 
 ```
 
