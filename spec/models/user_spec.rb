@@ -17,6 +17,6 @@ RSpec.describe User, type: :model do
     it { expect(subject).to have_many(:bookmarks) }
     it { expect(subject).to have_many(:goals) }
     it { expect(subject).to have_many(:journals) }
-    it { expect(subject).to have_one(:timer) }
+    it { expect(subject).to have_many(:timers) }
   end
 end
