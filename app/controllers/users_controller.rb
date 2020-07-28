@@ -50,6 +50,7 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
     if user.save
+      timer = user.timers.create(:time_length=>0)
       render json: 'User Created', status: :ok
     else 
       render json: user.errors.full_messages
