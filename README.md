@@ -30,7 +30,7 @@ Created by Michael Shepherd and Emma Bindi
 
 #### Deployed Sites:
 Netlify: https://codex-app.netlify.app/  
-Heroku: https://secure-lake-11760.herokuapp.com/  
+Heroku: https://codex-app-api.herokuapp.com/
 
 #### Github:
 API: https://github.com/emmabindi/Codex-API   
@@ -104,7 +104,7 @@ Email  | Password |
 | Testing |  RSPEC <br/> Shouldamatchers <br/> SimpleCov <br/>  FactoryBot <br/>  Cypress  |  
 | Deployment | Heroku <br/>  Netlify |  
 | Libraries | Draftjs <br/>  Chartjs <br/> Moment <br/> ChartKick  | 
-| Gems | Knock <br/>  will_paginate <br/> Ruboco <br/>  Faker <br/> groupdate <br/> CORS | 
+| Gems | Knock <br/>  will_paginate <br/> Rubocop <br/>  Faker <br/> groupdate <br/> CORS | 
 | Source Control | Git <br/> Github   |  
 ---
 
@@ -273,12 +273,14 @@ Wireframes were created using Figma and have linked the click actions with navig
 | Thur 23/07 | ⌔ Pagination <br/>  ⌔ Sorting <br/>  ⚙︎ Setup analytics data in back end |  
 | Fri 24/07 | ⌔ Analytics in front end with Chartjs & Chartkick <br/>  ▪ Edit journal functionality <br/>  ⌔ Netlify deployment  |  
 | Weekend  | ⚙︎ Rubocop offences <br/>  ⚙︎ Github workflow actions setup  <br/>  ⚙︎ Code coverage report & further RSPEC tests developed  <br/> ⌔ Styling  <br/>  ⚙︎ Cypress testing user login, adding new entries | 
-| Mon 27/07  |  |  
+| Mon 27/07  | ⚙︎ Error handling for user and entry creation <br/> ⚙︎ Manual testing <br/>  ⌔ Styling goals, dashboard <br/> ⌔ Setup random quote API to dashboard <br/> ⚙︎ Add sign up functionality  |  
 | Tues 28/07 |  |  
 | Wed 29/07 |  |  
 | Thur 30/07 |  |  
 
+``` js
 
+```
 
 &nbsp;
 
