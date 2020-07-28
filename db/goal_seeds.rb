@@ -1,12 +1,12 @@
-80.times do 
+60.times do 
   Goal.create(
     title: Faker::Lorem.sentence(word_count: 6),
     body: Faker::Lorem.paragraph(sentence_count: 3),
-    due_date: Faker::Date.between(from: Date.today, to: '2014-09-25'),
+    due_date: Faker::Date.between(from: Date.today, to: '2050-01-01'),
     completed: false,
     user_id: Faker::Number.within(range: 1..4),
-    category_id: Faker::Number.within(range: 1..15), 
-    language_id: Faker::Number.within(range: 1..26)
+    category_id: [1,2,7,9,15].shuffle.first,
+    language_id: [1,2,8,9,19,23,24,26].shuffle.first
   )
 end
 
@@ -27,7 +27,7 @@ Goal.create(
   completed: true,
   completed_date: '2020-08-10',
   user_id: 1,
-  category_id: 6, 
+  category_id: 1, 
   language_id: 1
 )
 
@@ -59,7 +59,7 @@ Goal.create(
   completed: true,
   completed_date: '2020-08-01',
   user_id: 1,
-  category_id: 6, 
+  category_id: 1, 
   language_id: 1
 )
 
