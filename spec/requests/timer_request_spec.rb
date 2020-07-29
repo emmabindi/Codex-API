@@ -9,12 +9,19 @@ RSpec.describe "Timers", type: :request do
     end
   end
 
+  describe "POST #create" do
+  before(:example) do 
+    @timer = create(:timer)
+    @timer_params = attributes_for(:timer)
+    post "/timer", params: { timer: @timer_params }, headers: authenticated_header
+  end
 
-  # describe "POST #update" do
-  #   it "returns http success" do
-  #     POST "/timer/update"
-  #     expect(response).to have_http_status(:success)
-  #   end
-  # end
+    it "returns http success" do
+      expect(response).to have_http_status(:success)
+    end
 
+    it 'saves the timer to the database' do
+      expect(Timer.last.time_length).to eq(@timer_params[:time_length])
+    end
+  end
 end

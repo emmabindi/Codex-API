@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get '/timer', to: 'timer#index'
-  post '/timer', to: 'timer#update'
+  post '/timer', to: 'timer#create'
 
   get 'language/index'
   get 'categories/index'
