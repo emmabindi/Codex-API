@@ -76,8 +76,8 @@ class AnalyticsController < ApplicationController
   def counts
     bookmarks_total = current_user.bookmarks.length
     journals_total = current_user.journals.length
-    completed_goals = Goal.where(completed: true).length
-    active_goals = Goal.where(completed: false).length
+    completed_goals = current_user.goals.where(completed: true).length
+    active_goals = current_user.goals.where(completed: false).length
 
     # Activity by Day
     bookmark_daily_count = current_user.bookmarks.where(created_at:
