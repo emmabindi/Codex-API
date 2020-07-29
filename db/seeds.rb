@@ -15,10 +15,10 @@ require_relative "goal_seeds"
 
 require_relative "journal_seeds"
 
-Timer.create(time_length:0, user_id:1)
-Timer.create(time_length:0, user_id:2)
-Timer.create(time_length:0, user_id:3)
-Timer.create(time_length:0, user_id:4)
+Timer.create(time_length:5000, user_id:1)
+Timer.create(time_length:10000, user_id:2)
+Timer.create(time_length:660, user_id:3)
+Timer.create(time_length:600, user_id:4)
 
 puts "Timers created for users"
 
