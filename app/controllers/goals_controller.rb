@@ -22,7 +22,7 @@ class GoalsController < ApplicationController
             .order(id: 'desc')
             .paginate(page: params[:page])
     render json: {
-      goals: goals.as_json(include: %i[category language]),
+      goals_complete: goals.as_json(include: %i[category language]),
       total_entries: current_user.goals.where(completed: true).length,
       current_user: current_user.username
     }
