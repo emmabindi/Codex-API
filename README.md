@@ -383,7 +383,7 @@ Below is an overview of the tasks completed each day which has been summarised f
 ⌔ Tasks driven by Michael   
 
 |  | Codex Sprint 1.0  | |
-|---|---|---|---|
+|---|---|---|
 | Mon 13/07  | ▪ Idea & Name Decision <br/> ▪ Elevator Pitch <br/> ▪ Research tools/libraries <br/> ▪ Decide MVP features & sprinkles list <br/> ▪ Create personas & user stories <br/>  ⚙︎ Trello board setup <br/> ⚙︎ Architecture Diagram ||
 | Tues 14/07 | ⌔ Dataflow diagram <br/> ⌔ Develop wireframes web & mobile | | 
 | Wed 15/07 | ▪ Finalise wireframes & link interactions <br/>  ▪ ERD  |  |
