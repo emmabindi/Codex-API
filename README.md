@@ -382,23 +382,23 @@ Below is an overview of the tasks completed each day which has been summarised f
 ⚙︎ Tasks driven by Emma  
 ⌔ Tasks driven by Michael   
 
-|  | Codex Sprint 1.0  | |
-|---|---|---|
-| Mon 13/07  | ▪ Idea & Name Decision <br/> ▪ Elevator Pitch <br/> ▪ Research tools/libraries <br/> ▪ Decide MVP features & sprinkles list <br/> ▪ Create personas & user stories <br/>  ⚙︎ Trello board setup <br/> ⚙︎ Architecture Diagram ||
-| Tues 14/07 | ⌔ Dataflow diagram <br/> ⌔ Develop wireframes web & mobile | | 
-| Wed 15/07 | ▪ Finalise wireframes & link interactions <br/>  ▪ ERD  |  |
-| Thur 16/07 | ⚙︎ TDD of API <br/> ⌔ Setup React App | | 
-| Fri 17/07 | ⚙︎ Heroku deployment <br/> ⚙︎ Test user authentication and API routes & requests <br/>  ▪ Submit planning documentation |  |
-| Mon 20/07  | ▪ Present planning deliverables <br/> ⌔ Custom CSS created for nav bar <br/> ⚙︎ Seed file content <br/> ⚙︎ Setup options for category & language lists <br/> ⌔ Front end journals component |  |
-| Tues 21/07 | ▪ Front end bookmarks component <br/>  ⌔ App refactor for Dynamic Components <br/>  | |  
-| Wed 22/07 | ⚙︎ Front end goals component <br/>  ⌔ Draftjs for new journal entries |  |
-| Thur 23/07 | ⌔ Pagination <br/>  ⌔ Sorting <br/>  ⚙︎ Setup analytics data in back end | |
-| Fri 24/07 | ⌔ Analytics in front end with Chartjs & Chartkick <br/>  ▪ Edit journal functionality <br/>  ⌔ Netlify deployment | |  
-| Weekend  | ⚙︎ Rubocop offences <br/>  ⚙︎ Github workflow actions setup  <br/>  ⚙︎ Code coverage report & further RSPEC tests developed  <br/> ⌔ Styling  <br/>  ⚙︎ Cypress testing user login, adding new entries | | 
-| Mon 27/07  | ⚙︎ Error handling for user and entry creation <br/> ⚙︎ Manual testing <br/>  ⌔ Styling goals, dashboard <br/> ⌔ Setup random quote API to dashboard <br/> ⚙︎ Add sign up functionality  | | 
-| Tues 28/07 | ⌔ Styling dashboard, analytics <br/>  ⌔ Adding loading spinners to all pages <br/> ⚙︎ Add error handling for new goals/bookmarks  <br/> ⚙︎ Mochawesome and cypress testing <br/>  ⌔ Error handling for new journals | | 
-| Wed 29/07 | ▪ Timer functionality  <br/> ⚙︎ Finalise documentation  <br/> ⌔ Dashboard & landing content <br/>  ⌔ Styling with Tooltips <br/> ▪ Bug fixes | | 
-| Thur 30/07 | ▪ Final Touches & Landing Page Content <br/> ▪ PowerPoint Presentation  <br/> ▪ Final Deployment  <br/> ▪ Project Submission | | 
+|  | Codex Sprint 1.0  | 
+|---|---|
+| Mon 13/07  | ▪ Idea & Name Decision <br/> ▪ Elevator Pitch <br/> ▪ Research tools/libraries <br/> ▪ Decide MVP features & sprinkles list <br/> ▪ Create personas & user stories <br/>  ⚙︎ Trello board setup <br/> ⚙︎ Architecture Diagram |
+| Tues 14/07 | ⌔ Dataflow diagram <br/> ⌔ Develop wireframes web & mobile | 
+| Wed 15/07 | ▪ Finalise wireframes & link interactions <br/>  ▪ ERD  |  
+| Thur 16/07 | ⚙︎ TDD of API <br/> ⌔ Setup React App |  
+| Fri 17/07 | ⚙︎ Heroku deployment <br/> ⚙︎ Test user authentication and API routes & requests <br/>  ▪ Submit planning documentation |  
+| Mon 20/07  | ▪ Present planning deliverables <br/> ⌔ Custom CSS created for nav bar <br/> ⚙︎ Seed file content <br/> ⚙︎ Setup options for category & language lists <br/> ⌔ Front end journals component | 
+| Tues 21/07 | ▪ Front end bookmarks component <br/>  ⌔ App refactor for Dynamic Components <br/>  |   
+| Wed 22/07 | ⚙︎ Front end goals component <br/>  ⌔ Draftjs for new journal entries |  
+| Thur 23/07 | ⌔ Pagination <br/>  ⌔ Sorting <br/>  ⚙︎ Setup analytics data in back end | 
+| Fri 24/07 | ⌔ Analytics in front end with Chartjs & Chartkick <br/>  ▪ Edit journal functionality <br/>  ⌔ Netlify deployment |   
+| Weekend  | ⚙︎ Rubocop offences <br/>  ⚙︎ Github workflow actions setup  <br/>  ⚙︎ Code coverage report & further RSPEC tests developed  <br/> ⌔ Styling  <br/>  ⚙︎ Cypress testing user login, adding new entries |  
+| Mon 27/07  | ⚙︎ Error handling for user and entry creation <br/> ⚙︎ Manual testing <br/>  ⌔ Styling goals, dashboard <br/> ⌔ Setup random quote API to dashboard <br/> ⚙︎ Add sign up functionality  |  
+| Tues 28/07 | ⌔ Styling dashboard, analytics <br/>  ⌔ Adding loading spinners to all pages <br/> ⚙︎ Add error handling for new goals/bookmarks  <br/> ⚙︎ Mochawesome and cypress testing <br/>  ⌔ Error handling for new journals |  
+| Wed 29/07 | ▪ Timer functionality  <br/> ⚙︎ Finalise documentation  <br/> ⌔ Dashboard & landing content <br/>  ⌔ Styling with Tooltips <br/> ▪ Bug fixes | 
+| Thur 30/07 | ▪ Final Touches & Landing Page Content <br/> ▪ PowerPoint Presentation  <br/> ▪ Final Deployment  <br/> ▪ Project Submission |  
 
 --- 
 *Daily Journal Link:*  
