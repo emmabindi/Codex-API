@@ -114,7 +114,7 @@ Tracking with due date and functionality to toggle when goal is achieved. Separa
 <a name="techstack"/></a>
 
 | Tech Stack  |   | 
-|---|---|---|
+|---|---|
 | Languages  | JavaScript (ES6) <br/> HTML5 <br/>  CSS <br/> SASS <br/>  Ruby |  
 | Frameworks | React <br/> Ruby on Rails  |  
 | Database | PostgreSQL  | 
