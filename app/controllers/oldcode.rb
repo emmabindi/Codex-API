@@ -2,30 +2,34 @@ class AnalyticsController < ApplicationController
   before_action :authenticate_user
 
   def entries_by_date
-    def fetch_activity(type)
-      current_user.public_send(type).group_by_day(
-        :created_at,
-        format: '%Y-%m-%d',
-        range: 4.weeks.ago.midnight..Time.zone.now
-      ).count
-    end
-
-    @bookmarks = fetch_activity(:bookmarks)
-    @goals = fetch_activity(:goals)
-    @journals = fetch_activity(:journals)
+    bookmarks = current_user.bookmarks.group_by_day(
+      :created_at,
+      format: '%Y-%m-%d',
+      range: 4.weeks.ago.midnight..Time.zone.now
+    ).count
+    journals = current_user.journals.group_by_day(
+      :created_at,
+      format: '%Y-%m-%d',
+      range: 4.weeks.ago.midnight..Time.zone.now
+    ).count
+    goals = current_user.goals.group_by_day(
+      :created_at,
+      format: '%Y-%m-%d',
+      range: 4.weeks.ago.midnight..Time.zone.now
+    ).count
 
     entries_array = []
-    entries_array.push(@bookmarks)
-    entries_array.push(@goals)
-    entries_array.push(@journals)
+    entries_array.push(bookmarks)
+    entries_array.push(goals)
+    entries_array.push(journals)
 
     total_entries_by_date = entries_array.inject { |memo, el| memo.merge(el) { |_k, old_v, new_v| old_v + new_v } }
 
     render json: {
       total_entries_by_date: total_entries_by_date,
-      bookmarks: @bookmarks,
-      goals: @goals,
-      journals: @journals
+      bookmarks: bookmarks,
+      goals: goals,
+      journals: journals
     }
   end
 
