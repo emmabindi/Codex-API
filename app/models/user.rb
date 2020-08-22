@@ -25,7 +25,31 @@ class User < ApplicationRecord
     end
     total_entries_by_date = entries_array.inject { |memo, el| memo.merge(el) { |_k, old_v, new_v| old_v + new_v } }
   end
+
+  # Gets the count of entries by category 
+  def fetch_activity_by_category(type)
+    public_send(type).joins(:category).group(:name).count(:name)
+  end
+
+  # Gets a hash containing the total of all activity by category 
+  def fetch_activities_by_category(*types)
+    entries_array = []
+    types.each_with_object({}) do | key, hash |
+      entries_array.push(hash[key] = fetch_activity_by_category(key))
+    end
+    total_entries_by_category = entries_array.inject { |memo, el| memo.merge(el) { |_k, old_v, new_v| old_v + new_v } }
+  end
 end
+
+
+
+
+
+
+
+
+
+
 
 # returns a hash however I want an array with a hash inside
 # alternative merge method though

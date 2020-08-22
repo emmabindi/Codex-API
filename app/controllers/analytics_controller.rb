@@ -13,26 +13,11 @@ class AnalyticsController < ApplicationController
 
   #   get '/analytics/categories', to: 'analytics#categories'
   def categories
-    def fetch_activity_by_category(type)
-      current_user.public_send(type).joins(:category).group(:name).count(:name)
-    end
-
-    @bookmarks = fetch_activity_by_category(:bookmarks)
-    @goals = fetch_activity_by_category(:goals)
-    @journals = fetch_activity_by_category(:journals)
-
-    ar = []
-    ar.push(@bookmarks)
-    ar.push(@goals)
-    ar.push(@journals)
-
-    total_entries_by_category = ar.inject { |memo, el| memo.merge(el) { |_k, old_v, new_v| old_v + new_v } }
-
     render json: {
-      total_entries_by_category: total_entries_by_category,
-      bookmarks_by_category: @bookmarks,
-      goals_by_category: @goals,
-      journals_by_category: @journals
+      total_entries_by_category: current_user.fetch_activities_by_category(:bookmarks, :goals, :journals),
+      bookmarks_by_category: current_user.fetch_activity_by_category(:bookmarks),
+      goals_by_category: current_user.fetch_activity_by_category(:goals),
+      journals_by_category: current_user.fetch_activity_by_category(:journals)
     }
   end
 
