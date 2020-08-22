@@ -32,42 +32,28 @@ class AnalyticsController < ApplicationController
   end
 
   def counts
-    bookmarks_total = current_user.bookmarks.length
-    journals_total = current_user.journals.length
-    completed_goals = current_user.goals.where(completed: true).length
-    active_goals = current_user.goals.where(completed: false).length
-
-    # Activity by Day
-    bookmark_daily_count = current_user.bookmarks.where(created_at:
-      (Time.zone.now.midnight - 1.day)..Time.zone.now.midnight).count
-    goals_daily_count = current_user.goals.where(created_at:
-      (Time.zone.now.midnight - 1.day)..Time.zone.now.midnight).count
-    journals_daily_count = current_user.journals.where(created_at:
-      (Time.zone.now.midnight - 1.day)..Time.zone.now.midnight).count
-    daily_activity = bookmark_daily_count + goals_daily_count + journals_daily_count
-
     # Activity by week
-    bookmark_week_count = current_user.bookmarks.where(created_at:
-      (Time.zone.now.midnight - 7.days)..Time.zone.now.midnight).count
-    goals_week_count = current_user.goals.where(created_at:
-      (Time.zone.now.midnight - 7.days)..Time.zone.now.midnight).count
-    journals_week_count = current_user.journals.where(created_at:
-      (Time.zone.now.midnight - 7.days)..Time.zone.now.midnight).count
-    weekly_activity = bookmark_week_count + goals_week_count + journals_week_count
-
+    # weekly_activity = bookmark_week_count + goals_week_count + journals_week_count
+    
     render json: {
-      bookmarks_total: bookmarks_total,
-      journals_total: journals_total,
-      completed_goals: completed_goals,
-      active_goals: active_goals,
-      bookmark_daily_count: bookmark_daily_count,
-      journals_daily_count: journals_daily_count,
-      goals_daily_count: goals_daily_count,
-      daily_activity: daily_activity,
-      bookmark_week_count: bookmark_week_count,
-      journals_week_count: journals_week_count,
-      goals_week_count: goals_week_count,
-      weekly_activity: weekly_activity
+      bookmarks_total: current_user.bookmarks.length,
+      journals_total: current_user.journals.length,
+      completed_goals: current_user.goals.where(completed: true).length,
+      active_goals: current_user.goals.where(completed: false).length,
+      
+      # Activity by Day
+      bookmark_daily_count: current_user.fetch_daily_counts(:bookmarks),
+      journals_daily_count: current_user.fetch_daily_counts(:journals),
+      goals_daily_count: current_user.fetch_daily_counts(:goals),
+      
+      # won't work because need to total these before sending as json
+      # daily_activity: (bookmark_daily_count + goals_daily_count + journals_daily_count),
+
+      # Activity by week
+      bookmark_week_count: current_user.fetch_weekly_counts(:bookmarks),
+      journals_week_count: current_user.fetch_weekly_counts(:journals),
+      goals_week_count: current_user.fetch_weekly_counts(:goals),
+      # weekly_activity: weekly_activity
     }
   end
 end

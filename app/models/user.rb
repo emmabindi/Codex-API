@@ -53,6 +53,16 @@ class User < ApplicationRecord
       end
       total_entries_by_language = entries_array.inject { |memo, el| memo.merge(el) { |_k, old_v, new_v| old_v + new_v } }
     end
+
+    def fetch_daily_counts(type)
+      public_send(type).where(created_at:
+        (Time.zone.now.midnight - 1.day)..Time.zone.now.midnight).count
+    end
+
+    def fetch_weekly_counts(type)
+      public_send(type).where(created_at:
+        (Time.zone.now.midnight - 7.days)..Time.zone.now.midnight).count
+    end
 end
 
 
