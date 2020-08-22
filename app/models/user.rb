@@ -39,6 +39,20 @@ class User < ApplicationRecord
     end
     total_entries_by_category = entries_array.inject { |memo, el| memo.merge(el) { |_k, old_v, new_v| old_v + new_v } }
   end
+
+    # Gets the count of entries by language 
+    def fetch_activity_by_language(type)
+      public_send(type).joins(:language).group(:name).count(:name)
+    end
+  
+    # Gets a hash containing the total of all activity by category 
+    def fetch_activities_by_language(*types)
+      entries_array = []
+      types.each_with_object({}) do | key, hash |
+        entries_array.push(hash[key] = fetch_activity_by_language(key))
+      end
+      total_entries_by_language = entries_array.inject { |memo, el| memo.merge(el) { |_k, old_v, new_v| old_v + new_v } }
+    end
 end
 
 

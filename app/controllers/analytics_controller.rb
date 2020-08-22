@@ -23,26 +23,11 @@ class AnalyticsController < ApplicationController
 
   #   get '/analytics/languages', to: 'analytics#languages'
   def languages
-    def fetch_activity_by_language(type)
-      current_user.public_send(type).joins(:language).group(:name).count(:name)
-    end
-
-    @bookmarks = fetch_activity_by_language(:bookmarks)
-    @goals = fetch_activity_by_language(:goals)
-    @journals = fetch_activity_by_language(:journals)
-
-    ar = []
-    ar.push(@bookmarks)
-    ar.push(@goals)
-    ar.push(@journals)
-
-    total_entries_by_language = ar.inject { |memo, el| memo.merge(el) { |_k, old_v, new_v| old_v + new_v } }
-
     render json: {
-      bookmarks_by_language: @bookmarks,
-      goals_by_language: @goals,
-      journals_by_language: @journals,
-      total_entries_by_language: total_entries_by_language
+      total_entries_by_language: current_user.fetch_activities_by_language(:bookmarks, :goals, :journals),
+      bookmarks_by_language: current_user.fetch_activity_by_language(:bookmarks),
+      goals_by_language: current_user.fetch_activity_by_language(:goals),
+      journals_by_language: current_user.fetch_activity_by_language(:journals),
     }
   end
 
