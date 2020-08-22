@@ -1,70 +1,62 @@
 class AnalyticsController < ApplicationController
   before_action :authenticate_user
 
+  # get '/analytics/activity', to: 'analytics#entries_by_date'
   def entries_by_date
-    def fetch_activity(type)
-      current_user.public_send(type).group_by_day(
-        :created_at,
-        format: '%Y-%m-%d',
-        range: 4.weeks.ago.midnight..Time.zone.now
-      ).count
-    end
-
-    @bookmarks = fetch_activity(:bookmarks)
-    @goals = fetch_activity(:goals)
-    @journals = fetch_activity(:journals)
-
-    entries_array = []
-    entries_array.push(@bookmarks)
-    entries_array.push(@goals)
-    entries_array.push(@journals)
-
-    total_entries_by_date = entries_array.inject { |memo, el| memo.merge(el) { |_k, old_v, new_v| old_v + new_v } }
-
     render json: {
-      total_entries_by_date: total_entries_by_date,
-      bookmarks: @bookmarks,
-      goals: @goals,
-      journals: @journals
-    }
+      total_entries_by_date: current_user.fetch_activities_by_date(:bookmarks, :goals, :journals),
+      bookmarks: current_user.fetch_activity_by_date(:bookmarks),
+      goals: current_user.fetch_activity_by_date(:goals),
+      journals: current_user.fetch_activity_by_date(:journals),
+    } 
   end
 
+  #   get '/analytics/categories', to: 'analytics#categories'
   def categories
-    bookmarks_by_category = current_user.bookmarks.joins(:category).group(:name).count(:name)
-    goals_by_category = current_user.goals.joins(:category).group(:name).count(:name)
-    journals_by_category = current_user.journals.joins(:category).group(:name).count(:name)
+    def fetch_activity_by_category(type)
+      current_user.public_send(type).joins(:category).group(:name).count(:name)
+    end
 
-    cat_array = []
-    cat_array.push(bookmarks_by_category)
-    cat_array.push(goals_by_category)
-    cat_array.push(journals_by_category)
+    @bookmarks = fetch_activity_by_category(:bookmarks)
+    @goals = fetch_activity_by_category(:goals)
+    @journals = fetch_activity_by_category(:journals)
 
-    total_entries_by_category = cat_array.inject { |memo, el| memo.merge(el) { |_k, old_v, new_v| old_v + new_v } }
+    ar = []
+    ar.push(@bookmarks)
+    ar.push(@goals)
+    ar.push(@journals)
+
+    total_entries_by_category = ar.inject { |memo, el| memo.merge(el) { |_k, old_v, new_v| old_v + new_v } }
 
     render json: {
       total_entries_by_category: total_entries_by_category,
-      bookmarks_by_category: bookmarks_by_category,
-      goals_by_category: goals_by_category,
-      journals_by_category: journals_by_category
+      bookmarks_by_category: @bookmarks,
+      goals_by_category: @goals,
+      journals_by_category: @journals
     }
   end
 
+  #   get '/analytics/languages', to: 'analytics#languages'
   def languages
-    bookmarks_by_language = current_user.bookmarks.joins(:language).group(:name).count(:name)
-    goals_by_language = current_user.goals.joins(:language).group(:name).count(:name)
-    journals_by_language = current_user.journals.joins(:language).group(:name).count(:name)
+    def fetch_activity_by_language(type)
+      current_user.public_send(type).joins(:language).group(:name).count(:name)
+    end
+
+    @bookmarks = fetch_activity_by_language(:bookmarks)
+    @goals = fetch_activity_by_language(:goals)
+    @journals = fetch_activity_by_language(:journals)
 
     ar = []
-    ar.push(bookmarks_by_language)
-    ar.push(journals_by_language)
-    ar.push(goals_by_language)
+    ar.push(@bookmarks)
+    ar.push(@goals)
+    ar.push(@journals)
 
     total_entries_by_language = ar.inject { |memo, el| memo.merge(el) { |_k, old_v, new_v| old_v + new_v } }
 
     render json: {
-      bookmarks_by_language: bookmarks_by_language,
-      goals_by_language: goals_by_language,
-      journals_by_language: journals_by_language,
+      bookmarks_by_language: @bookmarks,
+      goals_by_language: @goals,
+      journals_by_language: @journals,
       total_entries_by_language: total_entries_by_language
     }
   end
